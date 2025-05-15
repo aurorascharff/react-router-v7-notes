@@ -19,11 +19,11 @@ export const loader = async () => {
 
 export default function NotesRoute({ loaderData }: Route.ComponentProps) {
   return (
-    <div className="flex min-h-[100svh] w-full flex-col gap-5 bg-blue">
-      <header className="border-b-2 border-blue-light py-4">
+    <div className="flex min-h-[100svh] w-full flex-col gap-5">
+      <header className="border-b-2 border-primary py-4">
         <div className="mx-10 flex max-w-xl items-center justify-between lg:mx-40">
           <h1 className="text-5xl">
-            <Link className="font-display text-white hover:no-underline" to="/">
+            <Link className="hover:no-underline" to="/">
               <span>Note📝worthy</span>
             </Link>
           </h1>
@@ -31,7 +31,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
       </header>
       <main className="mx-10 flex grow flex-col gap-10 py-3 md:flex-row lg:mx-40">
         <div className="flex min-w-max flex-col gap-y-5">
-          <Link className="padding-0 text-left text-teal hover:underline" to=".">
+          <Link className="padding-0 text-left text-primary hover:underline" to=".">
             Random note
           </Link>
           <p>Recent notes:</p>
@@ -52,7 +52,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
           <Outlet />
         </div>
       </main>
-      <footer className="border-t-2 border-blue-light pb-4 pt-8">
+      <footer className="border-t-2 border-primary-light pb-4 pt-8">
         <div className="mx-10 flex max-w-xl gap-4 md:mx-40">
           <Link reloadDocument to="/notes.rss">
             RSS

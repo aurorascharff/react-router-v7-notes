@@ -4,16 +4,6 @@ A sleek and modern notes application built with React Router v7, featuring pendi
 
 - 📖 [React Router v7 docs](https://reactrouter.com/dev/start/framework/installation)
 
-## Features
-
-- 📝 Create, read, update, and delete notes
-- ⭐ Favorite important notes for quick access
-- 🎨 Clean, modern UI with a blue and teal color scheme
-- 🔄 Optimistic UI updates with pending indicators
-- 📱 Responsive design that works on all devices
-- 🛡️ Form validation with Zod
-- 🔌 SQLite database for easy local development
-
 ## Development
 
 Run the dev server:

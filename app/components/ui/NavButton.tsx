@@ -12,7 +12,7 @@ export default function NavButton({ to, children, ...otherProps }: Props & LinkP
     <Link
       {...otherProps}
       to={to}
-      className="m-0 w-fit cursor-pointer rounded bg-teal px-5 py-3 font-display text-lg font-bold leading-none text-blue shadow-lg"
+      className="m-0 w-fit cursor-pointer rounded bg-primary px-5 py-3 text-lg font-bold leading-none text-white shadow-lg"
     >
       {children}
     </Link>

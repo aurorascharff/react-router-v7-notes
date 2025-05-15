@@ -1,8 +1,7 @@
 import { Form, isRouteErrorResponse, Link, useRouteError } from 'react-router';
 import type { Route } from './+types/notes.$noteId';
 import { prisma } from '~/../db';
-
-import Favorite from '~/components/NoteActions';
+import Favorite from '~/components/Favorite';
 import Button from '~/components/ui/Button';
 import ErrorMessage from '~/components/ui/ErrorMessage';
 import { slow } from '~/utils/slow';
@@ -55,9 +54,9 @@ export default function NoteRoute({ loaderData }: Route.ComponentProps) {
 
   return (
     <div className="flex flex-col gap-y-4">
-      <h2 className="text-2xl font-semibold text-teal">{note.title}</h2>
+      <h2 className="text-2xl font-semibold text-primary">{note.title}</h2>
       <p>{note.content}</p>
-      <div className="flex flex-row gap-2 text-teal w-fit text-nowrap">
+      <div className="flex flex-row gap-2 text-primary w-fit text-nowrap">
         <Link to=".">Permalink</Link>
         <Favorite note={note} />
       </div>

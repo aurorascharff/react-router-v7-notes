@@ -13,7 +13,7 @@ export default function Favorite({ note }: { note: NoteFields }) {
   return (
     <fetcher.Form method="post">
       <button
-        className="text-teal"
+        className="text-primary"
         aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}
         name="favorite"
         value={favorite ? 'false' : 'true'}
