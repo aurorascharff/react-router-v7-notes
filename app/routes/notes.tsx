@@ -19,10 +19,10 @@ export const loader = async () => {
 export default function NotesRoute({ loaderData }: Route.ComponentProps) {
   return (
     <div className="flex min-h-[100svh] w-full flex-col gap-5 bg-gray-100">
-      <header className="border-b-2 border-primary py-4 bg-white">
+      <header className="border-b border-primary py-4 bg-white">
         <div className="mx-10 flex max-w-xl items-center justify-between lg:mx-40">
           <h1 className="text-4xl">
-            <Link className="hover:no-underline" to="/">
+            <Link className="hover:no-underline text-black" to="/">
               <span>React Router v7 Notes</span>
             </Link>
           </h1>
@@ -34,13 +34,13 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             Remind me!
           </Link>
           <NavButton to="new">Add new note</NavButton>
-          <ul className="flex rounded gap-2 flex-col max-h-[300px] md:max-h-[400px] overflow-y-auto min-w-[300px] bg-white p-4">
+          <ul className="flex rounded gap-2 flex-col max-h-[300px] md:max-h-[400px] overflow-y-auto min-w-[300px]">
             {loaderData.noteListItems.map(({ id, title, favorite }) => {
               return (
                 <NavLink prefetch="intent" to={id} key={id}>
                   {({ isActive }) => {
                     return (
-                      <li className={cn(isActive && 'bg-gray-100', 'px-4 py-2 rounded w-full hover:bg-gray-100')}>
+                      <li className={cn(isActive && 'bg-gray-200', 'px-4 py-2 rounded w-full')}>
                         {title} {favorite ? '★' : ''}
                       </li>
                     );
