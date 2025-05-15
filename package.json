@@ -1,0 +1,67 @@
+{
+  "name": "remix-jokes-rrv7",
+  "private": true,
+  "sideEffects": false,
+  "type": "module",
+  "scripts": {
+    "build": "react-router build",
+    "dev": "react-router dev",
+    "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
+    "start": "react-router-serve ./build/server/index.js",
+    "prisma.studio": "npx prisma studio",
+    "prisma.seed": "npx prisma db seed",
+    "prisma.migrate": "npx prisma migrate dev",
+    "prisma.push": "npx prisma db push",
+    "typecheck": "react-router typegen && tsc"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.8.0",
+    "@react-router/node": "^7.6.0",
+    "@react-router/serve": "^7.6.0",
+    "clsx": "^2.1.1",
+    "isbot": "^5.1.28",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-router": "^7.6.0",
+    "tailwind-merge": "^3.3.0",
+    "zod": "^3.24.4"
+  },
+  "devDependencies": {
+    "@eslint/compat": "^1.2.9",
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.26.0",
+    "@react-router/dev": "^7.6.0",
+    "@react-router/fs-routes": "^7.6.0",
+    "@types/node": "^22.15.18",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "@typescript-eslint/eslint-plugin": "^8.32.1",
+    "@typescript-eslint/parser": "^8.32.1",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9.26.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-import-resolver-typescript": "^4.3.4",
+    "eslint-plugin-autofix": "^2.2.0",
+    "eslint-plugin-import": "^2.31.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-sort-keys-fix": "^1.1.2",
+    "globals": "^16.1.0",
+    "postcss": "^8.5.3",
+    "prettier": "^3.5.3",
+    "prisma": "^6.8.0",
+    "tailwindcss": "^3.4.16",
+    "tsx": "^4.19.4",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5",
+    "vite-tsconfig-paths": "^5.1.4"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seed-new.ts"
+  }
+}
