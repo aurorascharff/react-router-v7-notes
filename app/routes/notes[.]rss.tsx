@@ -31,18 +31,18 @@ export const loader = async ({ request }: Route.LoaderArgs) => {
   const rssString = `
     <rss xmlns:blogChannel="${notesUrl}" version="2.0">
       <channel>
-        <title>Noteworthy</title>
+        <title>React Router v7 Notes</title>
         <link>${notesUrl}</link>
         <description>A collection of helpful notes</description>
         <language>en-us</language>
-        <generator>Noteworthy App</generator>
+        <generator>React Router v7 Notes</generator>
         <ttl>40</ttl>
         ${notes
           .map(note => {
             return `
             <item>
               <title><![CDATA[${escapeCdata(note.title)}]]></title>
-              <description><![CDATA[${escapeHtml(note.title)} - Noteworthy App]]></description>
+              <description><![CDATA[${escapeHtml(note.title)} - React Router v7 Notes]]></description>
               <pubDate>${note.createdAt.toUTCString()}</pubDate>
               <link>${notesUrl}/${note.id}</link>
               <guid>${notesUrl}/${note.id}</guid>

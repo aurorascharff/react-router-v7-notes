@@ -18,11 +18,11 @@ export default function TextArea({
       <textarea
         id={name}
         name={name}
-        className={errors ? 'outline outline-2 outline-red' : ''}
+        className={errors ? 'outline outline-2 outline-error' : ''}
         aria-describedby="error"
         {...otherProps}
       />
-      {errors && <span className="text-red">{errors[0]}</span>}
+      {errors && <span className="text-error">{errors[0]}</span>}
     </div>
   );
 }

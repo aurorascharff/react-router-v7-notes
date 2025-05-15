@@ -5,6 +5,7 @@ import { prisma } from '~/../db';
 import Button from '~/components/ui/Button';
 import ErrorMessage from '~/components/ui/ErrorMessage';
 import Input from '~/components/ui/Input';
+import Note from '~/components/ui/Note';
 import TextArea from '~/components/ui/TextArea';
 import { badRequest } from '~/utils/bad-request';
 import { slow } from '~/utils/slow';
@@ -21,7 +22,7 @@ const noteSchema = z.object({
 });
 
 export const meta = () => {
-  return [{ content: 'Noteworthy App', name: 'description' }, { title: 'New note' }];
+  return [{ content: 'Create new note', name: 'description' }, { title: 'New note' }];
 };
 
 export const action = async ({ request }: Route.ActionArgs) => {
@@ -51,8 +52,8 @@ export const action = async ({ request }: Route.ActionArgs) => {
 
 export default function NewNoteRoute({ actionData }: Route.ComponentProps) {
   return (
-    <div className="flex flex-col gap-5">
-      <p>Add a new note</p>
+    <Note>
+      <h2 className="font-semibold text-xl">Add a new note</h2>
       <Form method="post">
         <Input
           label="Title:"
@@ -71,7 +72,7 @@ export default function NewNoteRoute({ actionData }: Route.ComponentProps) {
           <Button type="submit">Add</Button>
         </div>
       </Form>
-    </div>
+    </Note>
   );
 }
 

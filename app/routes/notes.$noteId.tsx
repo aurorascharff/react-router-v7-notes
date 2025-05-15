@@ -1,15 +1,16 @@
-import { Form, isRouteErrorResponse, Link, useRouteError } from 'react-router';
+import { Form, isRouteErrorResponse, useRouteError } from 'react-router';
 import type { Route } from './+types/notes.$noteId';
 import { prisma } from '~/../db';
 import Favorite from '~/components/Favorite';
 import Button from '~/components/ui/Button';
 import ErrorMessage from '~/components/ui/ErrorMessage';
+import Note from '~/components/ui/Note';
 import { slow } from '~/utils/slow';
 
 export const meta = ({ data }: Route.MetaArgs) => {
   const { description, title } = data
     ? {
-        description: `${data.note.title} - Noteworthy App`,
+        description: `${data.note.title} - React Router v7 Notes`,
         title: `${data.note.title}`,
       }
     : { description: 'Note not found', title: 'Not found' };
@@ -53,19 +54,18 @@ export default function NoteRoute({ loaderData }: Route.ComponentProps) {
   const note = loaderData.note;
 
   return (
-    <div className="flex flex-col gap-y-4">
-      <h2 className="text-2xl font-semibold text-primary">{note.title}</h2>
-      <p>{note.content}</p>
-      <div className="flex flex-row gap-2 text-primary w-fit text-nowrap">
-        <Link to=".">Permalink</Link>
+    <Note>
+      <div className="flex flex-row gap-2 items-center w-fit text-nowrap">
+        <h2 className="font-semibold">{note.title}</h2>
         <Favorite note={note} />
       </div>
+      <p>{note.content}</p>
       <Form action="destroy" method="post">
-        <Button name="intent" type="submit" value="delete">
+        <Button className="bg-error" name="intent" type="submit" value="delete">
           Delete
         </Button>
       </Form>
-    </div>
+    </Note>
   );
 }
 

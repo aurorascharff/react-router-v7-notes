@@ -5,12 +5,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        layer: '#ffffff1a',
+        error: '#ff4d4f',
         primary: {
           DEFAULT: '#2457fa',
           dark: '#1d47cf',
         },
-        red: '#e74651be',
       },
     },
   },

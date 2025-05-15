@@ -1,26 +1,25 @@
 import { Link } from 'react-router';
 
 export const meta = () => {
-  return [{ content: 'Noteworthy App', name: 'description' }, { title: 'Noteworthy' }];
+  return [{ content: 'React Router v7 Notes', name: 'description' }, { title: 'Notes' }];
 };
 
 export default function IndexRoute() {
   return (
     <div className="flex grow flex-col items-center justify-center">
-      <div className="flex flex-col items-center justify-center pb-12 pt-12">
-        <h1 className="text-center text-6xl text-shadow">
-          Note <span className="block text-6xl uppercase leading-none md:text-9xl">worthy</span>
-        </h1>
+      <div className="flex flex-col items-center justify-center pb-12 pt-12 gap-4">
+        <h1 className="text-center text-6xl">React Router v7 Notes</h1>
         <nav>
           <ul className="flex list-none gap-4 p-0 text-lg leading-none">
             <li>
-              <Link className="decoration-wavy decoration-1" to="notes">
-                View Notes
-              </Link>
+              <Link to="notes">View Notes</Link>
             </li>
             <li>
-              <Link className="decoration-wavy decoration-1" to="/notes.rss">
-                RSS
+              <Link to="/notes.rss">RSS</Link>
+            </li>
+            <li>
+              <Link target="_blank" to="https://github.com/aurorascharff/aurorascharff/react-router-v7-notes">
+                GitHub
               </Link>
             </li>
           </ul>
