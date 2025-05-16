@@ -18,7 +18,7 @@ export const loader = async () => {
 
 export default function NotesRoute({ loaderData }: Route.ComponentProps) {
   const navigation = useNavigation();
-  const isLoadingNote = navigation.state === 'loading' && location.pathname !== '/notes/new';
+  const isLoading = navigation.state === 'loading' && location.pathname !== '/notes/new';
 
   return (
     <div className="flex min-h-svh w-full flex-col gap-10 bg-gray-100">
@@ -40,6 +40,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             </Link>
             <h2 className="mt-4 mb-2 text-xl">Notes</h2>
             {loaderData.noteListItems.map(({ id, title, favorite }) => {
+              const isLoadingNote = isLoading && navigation.location.pathname === `/notes/${id}`;
               return (
                 <NavLink className="hover:no-underline" prefetch="intent" to={id} key={id}>
                   {({ isActive }) => {
@@ -48,6 +49,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                         className={cn(
                           isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
                           'w-full rounded-sm px-4 py-2',
+                          isLoadingNote && 'bg-primary/20 hover:bg-primary/20',
                         )}
                       >
                         {title} {favorite ? '★' : ''}
@@ -59,7 +61,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             })}
           </ul>
         </div>
-        <div className={cn('mt-0 md:mt-14', isLoadingNote && 'animate-pulse', 'w-full xl:w-1/3')}>
+        <div className={cn('mt-0 md:mt-14', isLoading && 'animate-pulse', 'w-full xl:w-1/3')}>
           <Outlet />
         </div>
       </main>
