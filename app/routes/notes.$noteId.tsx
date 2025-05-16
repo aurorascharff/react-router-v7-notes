@@ -1,7 +1,6 @@
 import { isRouteErrorResponse, useRouteError } from 'react-router';
 import type { Route } from './+types/notes.$noteId';
 import { prisma } from '~/../db';
-
 import NoteDisplay from '~/components/NoteDisplay';
 import ErrorMessage from '~/components/ui/ErrorMessage';
 import { slow } from '~/utils/slow';
