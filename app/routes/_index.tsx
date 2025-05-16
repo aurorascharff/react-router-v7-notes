@@ -1,4 +1,4 @@
-import { Link } from 'react-router';
+import { href, Link } from 'react-router';
 
 export function meta() {
   return [{ content: 'React Router v7 Notes', name: 'description' }, { title: 'Notes' }];
@@ -12,7 +12,7 @@ export default function IndexRoute() {
         <nav>
           <ul className="flex list-none gap-4 p-0 text-lg leading-none">
             <li>
-              <Link to="notes">View Notes</Link>
+              <Link to={href('/notes')}>View Notes</Link>
             </li>
             <li>
               <Link to="/notes.rss">RSS</Link>

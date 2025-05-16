@@ -1,7 +1,6 @@
-import { Link, NavLink, Outlet } from 'react-router';
+import { href, Link, NavLink, Outlet } from 'react-router';
 import type { Route } from './+types/notes';
 import type { Note } from '@prisma/client';
-
 import NavButton from '~/components/ui/NavButton';
 import { cn } from '~/utils/style';
 
@@ -28,7 +27,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
       </header>
       <main className="mx-10 flex grow flex-col gap-10 py-3 md:flex-row lg:mx-40">
         <div className="flex flex-col gap-4">
-          <NavButton to="new">Create note</NavButton>
+          <NavButton to={href('/notes/new')}>Create note</NavButton>
           <div className="rounded-sm border border-gray-500 p-4 md:w-[300px]">
             <Link className="padding-0 text-primary text-left" to=".">
               Remind me...
@@ -37,7 +36,12 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             <ul className="flex max-h-[250px] flex-col gap-1 overflow-y-auto md:max-h-[400px]">
               {loaderData.notes.map(({ id, title, favorite }) => {
                 return (
-                  <NavLink className="hover:no-underline" prefetch="intent" to={id} key={id}>
+                  <NavLink
+                    className="hover:no-underline"
+                    prefetch="intent"
+                    to={href('/notes/:noteId', { noteId: id })}
+                    key={id}
+                  >
                     {({ isActive }) => {
                       return (
                         <li

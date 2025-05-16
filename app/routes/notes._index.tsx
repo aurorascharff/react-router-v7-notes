@@ -1,4 +1,4 @@
-import { isRouteErrorResponse, Link, useRouteError } from 'react-router';
+import { href, isRouteErrorResponse, Link, useRouteError } from 'react-router';
 import type { Route } from './+types/notes._index';
 import { prisma } from '~/../db';
 import Card from '~/components/ui/Card';
@@ -23,7 +23,9 @@ export default function NotesIndexRoute({ loaderData }: Route.ComponentProps) {
   return (
     <Card>
       <p>{loaderData.randomNote.content}</p>
-      <Link to={loaderData.randomNote.id}>Go to &quot;{loaderData.randomNote.title}&quot; details</Link>
+      <Link to={href('/notes/:noteId', { noteId: loaderData.randomNote.id })}>
+        Go to &quot;{loaderData.randomNote.title}&quot; details
+      </Link>
     </Card>
   );
 }
@@ -36,7 +38,7 @@ export function ErrorBoundary() {
     return (
       <ErrorMessage>
         <p>There are no notes to display.</p>
-        <Link to="new">Add your own</Link>
+        <Link to={href('/notes/new')}>Add your own</Link>
       </ErrorMessage>
     );
   }

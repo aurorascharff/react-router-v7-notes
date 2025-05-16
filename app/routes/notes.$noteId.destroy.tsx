@@ -1,4 +1,4 @@
-import { redirect } from 'react-router';
+import { href, redirect } from 'react-router';
 import type { Route } from './+types/notes.$noteId.destroy';
 import { prisma } from '~/../db';
 import { slow } from '~/utils/slow';
@@ -21,5 +21,5 @@ export async function action({ params, request }: Route.ActionArgs) {
     });
   }
   await prisma.note.delete({ where: { id: params.noteId } });
-  return redirect('/notes');
+  return redirect(href('/notes'));
 }
