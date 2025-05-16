@@ -18,7 +18,7 @@ export default function NoteDisplay({
   return (
     <Card>
       <div className="flex w-fit flex-row items-center gap-2 text-nowrap">
-        <h2 className="font-semibold">{note.title}</h2>
+        <h2 className="text-2xl">{note.title}</h2>
         <Favorite note={note} />
       </div>
       <p>{note.content}</p>

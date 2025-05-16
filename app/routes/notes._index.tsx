@@ -22,7 +22,6 @@ export const loader = async () => {
 export default function NotesIndexRoute({ loaderData }: Route.ComponentProps) {
   return (
     <Card>
-      <h2 className="text-xl font-semibold">Don&apos;t forget!</h2>
       <p>{loaderData.randomNote.content}</p>
       <Link to={loaderData.randomNote.id}>Go to &quot;{loaderData.randomNote.title}&quot; details</Link>
     </Card>

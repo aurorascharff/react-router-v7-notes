@@ -14,13 +14,13 @@ export default function Button({
   ...props
 }: Props & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const defaultClasses =
-    'active:enabled:translate-y-px h-fit w-fit cursor-pointer rounded-sm px-5 py-3 text-lg font-bold leading-none text-white shadow-lg hover:enabled:bg-primary-dark disabled:cursor-default disabled:opacity-80';
+    'active:enabled:translate-y-px h-fit w-fit cursor-pointer rounded-sm px-5 py-3 text-lg font-bold leading-none text-white disabled:cursor-default disabled:opacity-80 shadow-md';
   const colorClasses =
     theme === 'secondary'
-      ? 'bg-white text-primary'
+      ? 'bg-white text-primary hover:enabled:bg-gray-100'
       : theme === 'error'
-        ? 'bg-error text-white'
-        : 'bg-primary text-white';
+        ? 'bg-error text-white hover:enabled:bg-error-dark '
+        : 'bg-primary text-white hover:enabled:bg-primary-dark ';
 
   return (
     <button className={cn(defaultClasses, colorClasses, className)} {...props}>

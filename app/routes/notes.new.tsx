@@ -76,7 +76,7 @@ export default function NewNoteRoute({ actionData }: Route.ComponentProps) {
 
   return (
     <Card>
-      <h2 className="text-xl font-semibold">Add a new note</h2>
+      <h2 className="text-2xl">Add a new note</h2>
       <Form method="post">
         <Input
           label="Title:"
