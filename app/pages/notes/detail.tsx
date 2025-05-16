@@ -1,5 +1,5 @@
 import { isRouteErrorResponse, useRouteError } from 'react-router';
-import type { Route } from './+types/note';
+import type { Route } from './+types/detail';
 import { prisma } from '~/../db';
 import NoteDisplay from '~/components/NoteDisplay';
 import ErrorMessage from '~/components/ui/ErrorMessage';
