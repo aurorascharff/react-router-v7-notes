@@ -21,7 +21,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
   const isLoadingNote = navigation.state === 'loading' && location.pathname !== '/notes/new';
 
   return (
-    <div className="flex min-h-[100svh] w-full flex-col gap-5 bg-gray-100">
+    <div className="flex min-h-svh w-full flex-col gap-5 bg-gray-100">
       <header className="border-b border-primary py-4 bg-white">
         <div className="mx-10 flex max-w-xl items-center justify-between lg:mx-40">
           <h1 className="text-4xl">
@@ -39,7 +39,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
           <NavButton theme="secondary" to="new">
             Create note
           </NavButton>
-          <ul className="flex rounded gap-2 flex-col max-h-[300px] md:max-h-[400px] overflow-y-auto w-full md:w-[300px] border border-gray-500 p-4">
+          <ul className="flex rounded-sm gap-2 flex-col max-h-[300px] md:max-h-[400px] overflow-y-auto w-full md:w-[300px] border border-gray-500 p-4">
             <h2 className="text-lg">Notes</h2>
             {loaderData.noteListItems.map(({ id, title, favorite }) => {
               return (
@@ -49,7 +49,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                       <li
                         className={cn(
                           isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
-                          'px-4 py-2 rounded w-full',
+                          'px-4 py-2 rounded-sm w-full',
                         )}
                       >
                         {title} {favorite ? '★' : ''}

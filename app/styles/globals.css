@@ -1,6 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --color-error: #ff4d4f;
+  --color-primary: #2457fa;
+  --color-primary-dark: #1d47cf;
+}
 
 @layer base {
   fieldset {
@@ -12,11 +16,11 @@
   }
 
   input {
-    @apply m-0 flex h-10 w-full appearance-none items-center rounded border border-gray-500 pl-4 text-base shadow-none focus:outline focus:outline-2 focus:outline-primary outline-offset-2 aria-[invalid=true]:outline-error aria-[invalid=true]:outline;
+    @apply m-0 flex h-10 w-full appearance-none items-center rounded-sm border border-gray-500 pl-4 text-base shadow-none focus:outline-solid focus:outline-2 focus:outline-primary outline-offset-2 aria-invalid:outline-error aria-invalid:outline-solid;
   }
 
   textarea {
-    @apply m-0 flex h-20 w-full appearance-none items-center rounded border border-gray-500 pl-4 pt-2 text-base shadow-none focus:outline focus:outline-2 focus:outline-primary outline-offset-2 aria-[invalid=true]:outline-error aria-[invalid=true]:outline;
+    @apply m-0 flex h-20 w-full appearance-none items-center rounded-sm border border-gray-500 pl-4 pt-2 text-base shadow-none focus:outline-solid focus:outline-2 focus:outline-primary outline-offset-2 aria-invalid:outline-error aria-invalid:outline-solid;
   }
 
   a {

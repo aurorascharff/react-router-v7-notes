@@ -11,7 +11,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="min-h-[100svh] flex bg-gradient-radial">
+      <body className="min-h-svh flex bg-gradient-radial">
         {children}
         <ScrollRestoration />
         <Scripts />

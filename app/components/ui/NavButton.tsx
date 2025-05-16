@@ -11,7 +11,7 @@ type Props = {
 };
 
 export default function NavButton({ to, theme, children, className, ...otherProps }: Props & LinkProps) {
-  const defaultClasses = 'h-fit w-fit rounded px-5 py-3 text-lg leading-none text-white shadow-lg';
+  const defaultClasses = 'h-fit w-fit rounded-sm px-5 py-3 text-lg leading-none text-white shadow-lg';
   const colorClasses = theme === 'secondary' ? 'bg-white text-primary' : 'bg-primary text-white';
 
   return (
