@@ -20,7 +20,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
   const isLoading = navigation.state === 'loading' && location.pathname !== '/notes/new';
 
   return (
-    <div className="flex min-h-svh w-full flex-col gap-10 bg-gray-100">
+    <div className="flex w-full flex-col gap-10 bg-gray-100">
       <header className="border-primary border-b bg-white py-4">
         <div className="mx-10 flex max-w-xl items-center justify-between lg:mx-40">
           <h1 className="text-4xl">
