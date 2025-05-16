@@ -1,5 +1,5 @@
 import { href, Link, NavLink, Outlet } from 'react-router';
-import type { Route } from './+types/notes';
+import type { Route } from './+types/layout';
 import type { Note } from '@prisma/client';
 import NavButton from '~/components/ui/NavButton';
 import { cn } from '~/utils/style';
@@ -29,7 +29,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
         <div className="flex flex-col gap-4">
           <NavButton to={href('/notes/new')}>Create note</NavButton>
           <div className="rounded-sm border border-gray-500 p-4 md:w-[300px]">
-            <Link className="padding-0 text-primary text-left" to=".">
+            <Link className="padding-0 text-primary text-left" to={href('/notes')}>
               Remind me...
             </Link>
             <h2 className="mt-4 mb-2 text-xl">Notes</h2>
@@ -68,7 +68,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
       </main>
       <footer className="self-end pt-8 pb-4">
         <div className="mx-10 flex max-w-xl gap-4 md:mx-40">
-          <Link reloadDocument to="/notes.rss">
+          <Link reloadDocument to={href('/notes.rss')}>
             RSS
           </Link>
           <Link target="_blank" reloadDocument to="https://github.com/aurorascharff/react-router-v7-notes">
