@@ -1,6 +1,7 @@
 import { Link, NavLink, Outlet } from 'react-router';
 import type { Route } from './+types/notes';
-import { prisma } from '~/../db';
+import type { Note } from '@prisma/client';
+
 import NavButton from '~/components/ui/NavButton';
 import { cn } from '~/utils/style';
 
@@ -9,10 +10,7 @@ export function meta() {
 }
 
 export async function loader() {
-  const notes = await prisma.note.findMany({
-    orderBy: [{ favorite: 'desc' }, { createdAt: 'desc' }],
-    select: { favorite: true, id: true, title: true },
-  });
+  const notes: Note[] = [];
   return { notes };
 }
 
