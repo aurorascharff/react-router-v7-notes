@@ -14,7 +14,7 @@ function escapeHtml(s: string) {
     .replace(/'/g, '&#039;');
 }
 
-export const loader = async ({ request }: Route.LoaderArgs) => {
+export async function loader({ request }: Route.LoaderArgs) {
   const notes = await prisma.note.findMany({
     orderBy: { createdAt: 'desc' },
     take: 100,
@@ -61,4 +61,4 @@ export const loader = async ({ request }: Route.LoaderArgs) => {
       'Content-Type': 'application/xml',
     },
   });
-};
+}

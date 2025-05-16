@@ -1,8 +1,8 @@
 import { Link } from 'react-router';
 
-export const meta = () => {
+export function meta() {
   return [{ content: 'React Router v7 Notes', name: 'description' }, { title: 'Notes' }];
-};
+}
 
 export default function IndexRoute() {
   return (

@@ -22,11 +22,11 @@ const noteSchema = z.object({
   }),
 });
 
-export const meta = () => {
+export function meta() {
   return [{ content: 'Create new note', name: 'description' }, { title: 'New note' }];
-};
+}
 
-export const action = async ({ request }: Route.ActionArgs) => {
+export async function action({ request }: Route.ActionArgs) {
   const form = await request.formData();
   const result = noteSchema.safeParse({
     content: form.get('content'),
@@ -48,8 +48,8 @@ export const action = async ({ request }: Route.ActionArgs) => {
   const note = await prisma.note.create({
     data: result.data,
   });
-  throw redirect(`/notes/${note.id}`);
-};
+  return redirect(`/notes/${note.id}`);
+}
 
 export default function NewNoteRoute({ actionData }: Route.ComponentProps) {
   const navigation = useNavigation();

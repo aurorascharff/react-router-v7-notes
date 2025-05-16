@@ -3,7 +3,7 @@ import type { Route } from './+types/notes.$noteId.destroy';
 import { prisma } from '~/../db';
 import { slow } from '~/utils/slow';
 
-export const action = async ({ params, request }: Route.ActionArgs) => {
+export async function action({ params, request }: Route.ActionArgs) {
   await slow();
 
   const form = await request.formData();
@@ -21,5 +21,5 @@ export const action = async ({ params, request }: Route.ActionArgs) => {
     });
   }
   await prisma.note.delete({ where: { id: params.noteId } });
-  throw redirect('/notes');
-};
+  return redirect('/notes');
+}

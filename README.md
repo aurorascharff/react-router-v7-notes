@@ -1,6 +1,6 @@
 # React Router v7 Notes
 
-A notes application built with React Router v7, featuring pending UI, Zod for schema validation, Tailwind CSS v4, and Prisma.
+A notes application built with React Router v7, featuring pending UI, Zod for schema validation, Tailwind CSS v4, and Prisma. I'm using framework mode with SSR and pre rendering, and loaders and actions on the server.
 
 - 📖 [React Router v7 docs](https://reactrouter.com/dev/start/framework/installation)
 

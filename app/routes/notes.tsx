@@ -4,17 +4,17 @@ import { prisma } from '~/../db';
 import NavButton from '~/components/ui/NavButton';
 import { cn } from '~/utils/style';
 
-export const meta = () => {
+export function meta() {
   return [{ content: 'React Router v7 Notes', name: 'description' }, { title: 'Notes' }];
-};
+}
 
-export const loader = async () => {
+export async function loader() {
   const notes = await prisma.note.findMany({
     orderBy: [{ favorite: 'desc' }, { createdAt: 'desc' }],
     select: { favorite: true, id: true, title: true },
   });
   return { notes };
-};
+}
 
 export default function NotesRoute({ loaderData }: Route.ComponentProps) {
   const navigation = useNavigation();

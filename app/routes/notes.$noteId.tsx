@@ -5,7 +5,7 @@ import NoteDisplay from '~/components/NoteDisplay';
 import ErrorMessage from '~/components/ui/ErrorMessage';
 import { slow } from '~/utils/slow';
 
-export const meta = ({ data }: Route.MetaArgs) => {
+export function meta({ data }: Route.MetaArgs) {
   const { description, title } = data
     ? {
         description: `${data.note.title} - React Router v7 Notes`,
@@ -18,9 +18,9 @@ export const meta = ({ data }: Route.MetaArgs) => {
     { content: description, name: 'twitter:description' },
     { title },
   ];
-};
+}
 
-export const loader = async ({ params }: Route.LoaderArgs) => {
+export async function loader({ params }: Route.LoaderArgs) {
   await slow();
 
   const note = await prisma.note.findUnique({
@@ -34,9 +34,9 @@ export const loader = async ({ params }: Route.LoaderArgs) => {
   return {
     note,
   };
-};
+}
 
-export const action = async ({ params, request }: Route.ActionArgs) => {
+export async function action({ params, request }: Route.ActionArgs) {
   await slow();
 
   const formData = await request.formData();
@@ -46,7 +46,7 @@ export const action = async ({ params, request }: Route.ActionArgs) => {
     },
     where: { id: params.noteId },
   });
-};
+}
 
 export default function NoteRoute({ loaderData }: Route.ComponentProps) {
   const note = loaderData.note;

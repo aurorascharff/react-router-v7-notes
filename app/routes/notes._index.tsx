@@ -4,7 +4,7 @@ import { prisma } from '~/../db';
 import Card from '~/components/ui/Card';
 import ErrorMessage from '~/components/ui/ErrorMessage';
 
-export const loader = async () => {
+export async function loader() {
   const count = await prisma.note.count();
   const randomRowNumber = Math.floor(Math.random() * count);
   const [randomNote] = await prisma.note.findMany({
@@ -17,7 +17,7 @@ export const loader = async () => {
     });
   }
   return { randomNote };
-};
+}
 
 export default function NotesIndexRoute({ loaderData }: Route.ComponentProps) {
   return (
