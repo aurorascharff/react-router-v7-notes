@@ -10,7 +10,7 @@ export async function action({ request }: Route.ActionArgs) {
   throw new Error('This route is not implemented yet.');
 }
 
-export default function NewNote() {
+export default function NewNoteRoute() {
   return (
     <Card>
       <h2 className="text-2xl">Add a new note</h2>
