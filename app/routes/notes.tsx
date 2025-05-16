@@ -73,7 +73,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
           <Link
             target="_blank"
             reloadDocument
-            to="https://github.com/aurorascharff/aurorascharff/react-router-v7-noter"
+            to="https://github.com/aurorascharff/aurorascharff/react-router-v7-notes"
           >
             GitHub
           </Link>
