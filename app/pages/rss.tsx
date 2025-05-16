@@ -1,4 +1,4 @@
-import type { Route } from './+types/feed';
+import type { Route } from './+types/rss';
 import { prisma } from '~/../db';
 
 function escapeCdata(s: string) {

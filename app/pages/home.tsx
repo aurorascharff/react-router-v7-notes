@@ -4,7 +4,7 @@ export function meta() {
   return [{ content: 'React Router v7 Notes', name: 'description' }, { title: 'Notes' }];
 }
 
-export default function IndexRoute() {
+export default function HomePage() {
   return (
     <div className="flex grow flex-col items-center justify-center">
       <div className="flex flex-col items-center justify-center gap-4 pt-12 pb-12">

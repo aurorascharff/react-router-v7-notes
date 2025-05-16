@@ -36,7 +36,7 @@ export async function action({ request }: Route.ActionArgs) {
   return redirect(`/notes/${note.id}`);
 }
 
-export default function NewNoteRoute({ actionData }: Route.ComponentProps) {
+export default function NewNote({ actionData }: Route.ComponentProps) {
   const navigation = useNavigation();
 
   // Optimistic update
