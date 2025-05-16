@@ -7,20 +7,16 @@
 }
 
 @layer base {
-  fieldset {
-    @apply m-0 border-0 p-0;
-  }
-
   form {
     @apply flex w-full flex-col gap-5;
   }
 
   input {
-    @apply m-0 flex h-10 w-full appearance-none items-center rounded-sm border border-gray-500 pl-4 text-base shadow-none focus:outline-solid focus:outline-2 focus:outline-primary outline-offset-2 aria-invalid:outline-error aria-invalid:outline-solid;
+    @apply focus:outline-primary aria-invalid:outline-error m-0 flex h-10 w-full appearance-none items-center rounded-sm border border-gray-500 pl-4 text-base shadow-none outline-offset-2 focus:outline-2 focus:outline-solid aria-invalid:outline-solid;
   }
 
   textarea {
-    @apply m-0 flex h-20 w-full appearance-none items-center rounded-sm border border-gray-500 pl-4 pt-2 text-base shadow-none focus:outline-solid focus:outline-2 focus:outline-primary outline-offset-2 aria-invalid:outline-error aria-invalid:outline-solid;
+    @apply focus:outline-primary aria-invalid:outline-error m-0 flex h-20 w-full appearance-none items-center rounded-sm border border-gray-500 pt-2 pl-4 text-base shadow-none outline-offset-2 focus:outline-2 focus:outline-solid aria-invalid:outline-solid;
   }
 
   a {
