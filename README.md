@@ -4,28 +4,29 @@ A notes application built with React Router v7, featuring pending UI, Zod for sc
 
 - 📖 [React Router v7 docs](https://reactrouter.com/dev/start/framework/installation)
 
-## Development
+## Getting Started
 
-Run the dev server:
+First, install the dependencies:
 
-```shellscript
+```bash
+npm install
+```
+
+Then, run the development server:
+
+```bash
 npm run dev
 ```
 
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
 ## Prisma Setup
 
-Add a `.env` file to the root of the project, refer to `.env.sample` for the required environment variables.
-You need decide between prisma local development with `sqlite` or a real database with for example `sqlserver`. Define it in the `schema.prisma` file.
+You need decide between prisma local development with `sqlite` or a real database with for example `postgresql` or `sqlserver`. Define it in the `schema.prisma` file.
 
-After switching, delete the `prisma/migrations` folder before running the migration command.
+Consider adding a `.env` file to the root of the project and use the environment variables inside `schema.prisma` with `env("DATABASE_URL")`, refer to `.env.sample`.
 
-When using sqlserver, you need to migrate the database schema with:
-
-```bash
-npm run prisma.migrate
-```
-
-When using sqlite, initialize with:
+When using sqlite, initialize the database with:
 
 ```bash
 npm run prisma.push
@@ -37,21 +38,17 @@ Seed prisma/seed.ts for initial data:
 npm run prisma.seed
 ```
 
-## Deployment
+To view your data in the database, you can run:
 
-First, build your app for production:
-
-```sh
-npm run build
+```bash
+npm run prisma.studio
 ```
 
-Then run the app in production mode:
+When using a real database with for example postgresql or sqlserver, you need to migrate the database schema with:
 
-```sh
-npm start
+```bash
+npm run prisma.migrate
 ```
-
-Now you'll need to pick a host to deploy it to.
 
 ### DIY
 
