@@ -39,7 +39,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
           <NavButton theme="secondary" to="new">
             Create note
           </NavButton>
-          <ul className="flex rounded gap-2 flex-col max-h-[300px] md:max-h-[400px] overflow-y-auto min-w-[300px] border border-gray-500 p-4">
+          <ul className="flex rounded gap-2 flex-col max-h-[300px] md:max-h-[400px] overflow-y-auto w-full md:w-[300px] border border-gray-500 p-4">
             <h2 className="text-lg">Notes</h2>
             {loaderData.noteListItems.map(({ id, title, favorite }) => {
               return (
