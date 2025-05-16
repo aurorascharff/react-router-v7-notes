@@ -1,4 +1,4 @@
-import './styles/globals.css';
+import './globals.css';
 
 import { Links, Meta, Outlet, Scripts, ScrollRestoration, useRouteError } from 'react-router';
 
@@ -11,7 +11,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="min-h-svh flex bg-gradient-radial">
+      <body className="bg-gradient-radial flex min-h-svh">
         {children}
         <ScrollRestoration />
         <Scripts />
