@@ -1,5 +1,4 @@
 import { Form, useRouteError, redirect, useNavigation } from 'react-router';
-import { z } from 'zod';
 import type { Route } from './+types/notes.new';
 import { prisma } from '~/../db';
 import NoteDisplay from '~/components/NoteDisplay';
@@ -10,21 +9,7 @@ import Input from '~/components/ui/Input';
 import TextArea from '~/components/ui/TextArea';
 import { badRequest } from '~/utils/bad-request';
 import { slow } from '~/utils/slow';
-
-const noteSchema = z.object({
-  content: z.string().min(5, {
-    message: 'Note content is too short',
-  }),
-  createdAt: z.date().optional(),
-  id: z.string().optional(),
-  title: z.string().min(2, {
-    message: 'Note title is too short',
-  }),
-});
-
-export function meta() {
-  return [{ content: 'Create new note', name: 'description' }, { title: 'New note' }];
-}
+import { noteSchema } from '~/validations/noteSchema';
 
 export async function action({ request }: Route.ActionArgs) {
   const form = await request.formData();
