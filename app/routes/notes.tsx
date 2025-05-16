@@ -70,11 +70,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
           <Link reloadDocument to="/notes.rss">
             RSS
           </Link>
-          <Link
-            target="_blank"
-            reloadDocument
-            to="https://github.com/aurorascharff/aurorascharff/react-router-v7-notes"
-          >
+          <Link target="_blank" reloadDocument to="https://github.com/aurorascharff/react-router-v7-notes">
             GitHub
           </Link>
         </div>

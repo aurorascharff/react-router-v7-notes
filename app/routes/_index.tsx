@@ -18,7 +18,7 @@ export default function IndexRoute() {
               <Link to="/notes.rss">RSS</Link>
             </li>
             <li>
-              <Link target="_blank" to="https://github.com/aurorascharff/aurorascharff/react-router-v7-notes">
+              <Link target="_blank" to="https://github.com/aurorascharff/react-router-v7-notes">
                 GitHub
               </Link>
             </li>
