@@ -1,8 +1,8 @@
 import { isRouteErrorResponse, Link, useRouteError } from 'react-router';
 import type { Route } from './+types/notes._index';
 import { prisma } from '~/../db';
+import Card from '~/components/ui/Card';
 import ErrorMessage from '~/components/ui/ErrorMessage';
-import Note from '~/components/ui/Note';
 
 export const loader = async () => {
   const count = await prisma.note.count();
@@ -21,11 +21,11 @@ export const loader = async () => {
 
 export default function NotesIndexRoute({ loaderData }: Route.ComponentProps) {
   return (
-    <Note>
+    <Card>
       <h2 className="text-xl font-semibold">Don&apos;t forget!</h2>
       <p>{loaderData.randomNote.content}</p>
       <Link to={loaderData.randomNote.id}>Go to &quot;{loaderData.randomNote.title}&quot; details</Link>
-    </Note>
+    </Card>
   );
 }
 

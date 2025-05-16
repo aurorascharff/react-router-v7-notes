@@ -1,11 +1,12 @@
-import { Form, useRouteError, redirect } from 'react-router';
+import { Form, useRouteError, redirect, useNavigation } from 'react-router';
 import { z } from 'zod';
 import type { Route } from './+types/notes.new';
 import { prisma } from '~/../db';
+import NoteDisplay from '~/components/NoteDisplay';
 import Button from '~/components/ui/Button';
+import Card from '~/components/ui/Card';
 import ErrorMessage from '~/components/ui/ErrorMessage';
 import Input from '~/components/ui/Input';
-import Note from '~/components/ui/Note';
 import TextArea from '~/components/ui/TextArea';
 import { badRequest } from '~/utils/bad-request';
 import { slow } from '~/utils/slow';
@@ -51,8 +52,30 @@ export const action = async ({ request }: Route.ActionArgs) => {
 };
 
 export default function NewNoteRoute({ actionData }: Route.ComponentProps) {
+  const navigation = useNavigation();
+
+  // Optimistic update
+  if (navigation.formData) {
+    const result = noteSchema.safeParse({
+      content: navigation.formData.get('content'),
+      title: navigation.formData.get('title'),
+    });
+    if (result.success) {
+      return (
+        <NoteDisplay
+          canDelete={false}
+          note={{
+            content: result.data.content,
+            favorite: false,
+            title: result.data.title,
+          }}
+        />
+      );
+    }
+  }
+
   return (
-    <Note>
+    <Card>
       <h2 className="font-semibold text-xl">Add a new note</h2>
       <Form method="post">
         <Input
@@ -72,7 +95,7 @@ export default function NewNoteRoute({ actionData }: Route.ComponentProps) {
           <Button type="submit">Add</Button>
         </div>
       </Form>
-    </Note>
+    </Card>
   );
 }
 

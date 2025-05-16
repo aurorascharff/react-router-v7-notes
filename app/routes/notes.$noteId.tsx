@@ -1,10 +1,9 @@
-import { Form, isRouteErrorResponse, useRouteError } from 'react-router';
+import { isRouteErrorResponse, useRouteError } from 'react-router';
 import type { Route } from './+types/notes.$noteId';
 import { prisma } from '~/../db';
-import Favorite from '~/components/Favorite';
-import Button from '~/components/ui/Button';
+
+import NoteDisplay from '~/components/NoteDisplay';
 import ErrorMessage from '~/components/ui/ErrorMessage';
-import Note from '~/components/ui/Note';
 import { slow } from '~/utils/slow';
 
 export const meta = ({ data }: Route.MetaArgs) => {
@@ -53,20 +52,7 @@ export const action = async ({ params, request }: Route.ActionArgs) => {
 export default function NoteRoute({ loaderData }: Route.ComponentProps) {
   const note = loaderData.note;
 
-  return (
-    <Note>
-      <div className="flex flex-row gap-2 items-center w-fit text-nowrap">
-        <h2 className="font-semibold">{note.title}</h2>
-        <Favorite note={note} />
-      </div>
-      <p>{note.content}</p>
-      <Form action="destroy" method="post">
-        <Button className="bg-error" name="intent" type="submit" value="delete">
-          Delete
-        </Button>
-      </Form>
-    </Note>
-  );
+  return <NoteDisplay note={note} />;
 }
 
 export function ErrorBoundary({ params }: Route.ErrorBoundaryProps) {

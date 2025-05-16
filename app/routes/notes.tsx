@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet } from 'react-router';
+import { Link, NavLink, Outlet, useNavigation } from 'react-router';
 import type { Route } from './+types/notes';
 import { prisma } from '~/../db';
 import NavButton from '~/components/ui/NavButton';
@@ -17,6 +17,9 @@ export const loader = async () => {
 };
 
 export default function NotesRoute({ loaderData }: Route.ComponentProps) {
+  const navigation = useNavigation();
+  const isLoadingNote = navigation.state === 'loading' && location.pathname !== '/notes/new';
+
   return (
     <div className="flex min-h-[100svh] w-full flex-col gap-5 bg-gray-100">
       <header className="border-b border-primary py-4 bg-white">
@@ -30,17 +33,25 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
       </header>
       <main className="mx-10 flex grow flex-col gap-10 py-3 md:flex-row lg:mx-40">
         <div className="flex flex-col gap-4">
-          <Link className="padding-0 text-left text-primary hover:underline" to=".">
+          <Link className="padding-0 text-left text-primary" to=".">
             Remind me!
           </Link>
-          <NavButton to="new">Add new note</NavButton>
-          <ul className="flex rounded gap-2 flex-col max-h-[300px] md:max-h-[400px] overflow-y-auto min-w-[300px]">
+          <NavButton theme="secondary" to="new">
+            Create note
+          </NavButton>
+          <ul className="flex rounded gap-2 flex-col max-h-[300px] md:max-h-[400px] overflow-y-auto min-w-[300px] border border-gray-500 p-4">
+            <h2 className="text-lg">Notes</h2>
             {loaderData.noteListItems.map(({ id, title, favorite }) => {
               return (
-                <NavLink prefetch="intent" to={id} key={id}>
+                <NavLink className="hover:no-underline" prefetch="intent" to={id} key={id}>
                   {({ isActive }) => {
                     return (
-                      <li className={cn(isActive && 'bg-gray-200', 'px-4 py-2 rounded w-full')}>
+                      <li
+                        className={cn(
+                          isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
+                          'px-4 py-2 rounded w-full',
+                        )}
+                      >
                         {title} {favorite ? '★' : ''}
                       </li>
                     );
@@ -50,7 +61,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             })}
           </ul>
         </div>
-        <div className={cn('mt-0 md:mt-24', false && 'animate-pulse', 'w-full xl:w-1/3')}>
+        <div className={cn('mt-0 md:mt-24', isLoadingNote && 'animate-pulse', 'w-full xl:w-1/3')}>
           <Outlet />
         </div>
       </main>
