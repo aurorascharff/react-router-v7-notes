@@ -22,10 +22,10 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
 
   return (
     <div className="flex min-h-svh w-full flex-col gap-5 bg-gray-100">
-      <header className="border-b border-primary py-4 bg-white">
+      <header className="border-primary border-b bg-white py-4">
         <div className="mx-10 flex max-w-xl items-center justify-between lg:mx-40">
           <h1 className="text-4xl">
-            <Link className="hover:no-underline text-black" to="/">
+            <Link className="text-black hover:no-underline" to="/">
               <span>React Router v7 Notes</span>
             </Link>
           </h1>
@@ -33,13 +33,13 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
       </header>
       <main className="mx-10 flex grow flex-col gap-10 py-3 md:flex-row lg:mx-40">
         <div className="flex flex-col gap-4">
-          <Link className="padding-0 text-left text-primary" to=".">
+          <Link className="padding-0 text-primary text-left" to=".">
             Remind me!
           </Link>
           <NavButton theme="secondary" to="new">
             Create note
           </NavButton>
-          <ul className="flex rounded-sm gap-2 flex-col max-h-[300px] md:max-h-[400px] overflow-y-auto w-full md:w-[300px] border border-gray-500 p-4">
+          <ul className="flex max-h-[300px] w-full flex-col gap-2 overflow-y-auto rounded-sm border border-gray-500 p-4 md:max-h-[400px] md:w-[300px]">
             <h2 className="text-lg">Notes</h2>
             {loaderData.noteListItems.map(({ id, title, favorite }) => {
               return (
@@ -49,7 +49,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                       <li
                         className={cn(
                           isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
-                          'px-4 py-2 rounded-sm w-full',
+                          'w-full rounded-sm px-4 py-2',
                         )}
                       >
                         {title} {favorite ? '★' : ''}
@@ -65,7 +65,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
           <Outlet />
         </div>
       </main>
-      <footer className="pb-4 pt-8 self-end">
+      <footer className="self-end pt-8 pb-4">
         <div className="mx-10 flex max-w-xl gap-4 md:mx-40">
           <Link reloadDocument to="/notes.rss">
             RSS

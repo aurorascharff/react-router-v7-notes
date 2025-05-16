@@ -7,7 +7,7 @@ export const meta = () => {
 export default function IndexRoute() {
   return (
     <div className="flex grow flex-col items-center justify-center">
-      <div className="flex flex-col items-center justify-center pb-12 pt-12 gap-4">
+      <div className="flex flex-col items-center justify-center gap-4 pt-12 pb-12">
         <h1 className="text-center text-6xl">React Router v7 Notes</h1>
         <nav>
           <ul className="flex list-none gap-4 p-0 text-lg leading-none">
