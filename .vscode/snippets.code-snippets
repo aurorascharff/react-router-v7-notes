@@ -1,0 +1,26 @@
+{
+    "optimisticUpdate": {
+        "scope": "typescriptreact",
+        "prefix": "optimisticUpdate",
+        "body": [
+            "if (navigation.formData) {",
+            "  const result = noteSchema.safeParse({",
+            "    content: navigation.formData.get('content'),",
+            "    title: navigation.formData.get('title'),",
+            "  });",
+            "  if (result.success) {",
+            "    return (",
+            "      <NoteDisplay",
+            "        canDelete={false}",
+            "        note={{",
+            "          content: result.data.content,",
+            "          favorite: false,",
+            "          title: result.data.title,",
+            "        }}",
+            "      />",
+            "    );",
+            "  }",
+            "}"
+        ],
+    }
+}
