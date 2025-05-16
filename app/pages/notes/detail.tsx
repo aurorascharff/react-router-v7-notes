@@ -48,7 +48,7 @@ export async function action({ params, request }: Route.ActionArgs) {
   });
 }
 
-export default function NoteDetail({ loaderData }: Route.ComponentProps) {
+export default function NoteDetailRoute({ loaderData }: Route.ComponentProps) {
   const note = loaderData.note;
 
   return <NoteDisplay note={note} />;

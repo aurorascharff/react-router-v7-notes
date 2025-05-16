@@ -2,7 +2,7 @@ import { type RouteConfig, route, index, layout, prefix } from '@react-router/de
 
 export default [
   index('./pages/home.tsx'),
-  layout('./pages/notes/sidebar.tsx', [
+  layout('./pages/notes/notes.tsx', [
     ...prefix('notes', [
       index('./pages/notes/random-note.tsx'),
       route('new', './pages/notes/new.tsx'),

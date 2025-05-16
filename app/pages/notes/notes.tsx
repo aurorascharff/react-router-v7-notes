@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet, useNavigation, href } from 'react-router';
-import type { Route } from './+types/sidebar';
+import type { Route } from './+types/notes';
 import { prisma } from '~/../db';
 import NavButton from '~/components/ui/NavButton';
 import { cn } from '~/utils/style';
@@ -15,7 +15,7 @@ export async function loader() {
   return { notes };
 }
 
-export default function NotesSidebar({ loaderData }: Route.ComponentProps) {
+export default function NotesRoute({ loaderData }: Route.ComponentProps) {
   const navigation = useNavigation();
   const isLoading = navigation.state === 'loading' && location.pathname !== '/notes/new';
 

@@ -19,7 +19,7 @@ export async function loader() {
   return { randomNote };
 }
 
-export default function RandomNote({ loaderData }: Route.ComponentProps) {
+export default function RandomNoteRoute({ loaderData }: Route.ComponentProps) {
   return (
     <Card>
       <p>{loaderData.randomNote.content}</p>
