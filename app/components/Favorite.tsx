@@ -13,7 +13,7 @@ export default function Favorite({ disabled, note }: Props) {
   return (
     <fetcher.Form method="post">
       <button
-        className="text-primary"
+        className="cursor-pointer text-2xl text-yellow-400"
         disabled={disabled}
         aria-label={favorite ? 'Remove from favorites' : 'Add to favorites'}
         name="favorite"

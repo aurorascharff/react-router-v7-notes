@@ -22,7 +22,7 @@ export default function NoteDisplay({
         <Favorite note={note} />
       </div>
       <p>{note.content}</p>
-      <Form action="destroy" method="post">
+      <Form action="destroy" method="post" className="mt-4">
         <Button disabled={!canMutate} theme="error" name="intent" type="submit" value="delete">
           {isDeleting ? 'Deleting...' : 'Delete'}
         </Button>

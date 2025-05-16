@@ -34,12 +34,12 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
       <main className="mx-10 flex grow flex-col gap-10 py-3 md:flex-row lg:mx-40">
         <div className="flex flex-col gap-4">
           <NavButton to="new">Create note</NavButton>
-          <div className="flex w-full flex-col gap-2 rounded-sm border border-gray-500 p-4 md:w-[300px]">
+          <div className="rounded-sm border border-gray-500 p-4 md:w-[300px]">
             <Link className="padding-0 text-primary text-left" to=".">
               Remind me...
             </Link>
             <h2 className="mt-4 mb-2 text-xl">Notes</h2>
-            <ul className="max-h-[200px] overflow-y-auto md:max-h-[300px]">
+            <ul className="flex max-h-[250px] flex-col gap-1 overflow-y-auto md:max-h-[400px]">
               {loaderData.notes.map(({ id, title, favorite }) => {
                 const isLoadingNote = isLoading && navigation.location.pathname === `/notes/${id}`;
                 return (
@@ -49,11 +49,13 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                         <li
                           className={cn(
                             isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
-                            'w-full rounded-sm px-4 py-2',
                             isLoadingNote && 'bg-primary/20 hover:bg-primary/20',
+                            'flex w-full items-center justify-between rounded-sm px-4 py-2',
                           )}
                         >
-                          {title} {favorite ? '★' : ''}
+                          <span>{title}</span>
+                          <span className="sr-only">{favorite ? 'Favorite note' : ''}</span>
+                          <span className="text-yellow-400">{favorite ? '★' : ''}</span>
                         </li>
                       );
                     }}
