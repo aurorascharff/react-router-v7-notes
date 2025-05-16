@@ -1,4 +1,4 @@
-import { Form, useNavigation } from 'react-router';
+import { Form } from 'react-router';
 import Favorite from './Favorite';
 import Button from './ui/Button';
 import Card from './ui/Card';
@@ -6,15 +6,10 @@ import type { Note } from '@prisma/client';
 
 export default function NoteDisplay({
   note,
-  canDelete = true,
 }: {
   note: Pick<Note, 'content' | 'title' | 'favorite'>;
   canDelete?: boolean;
 }) {
-  const navigation = useNavigation();
-  const isDeleting = navigation.formData?.get('intent') === 'delete';
-  const canMutate = canDelete && !isDeleting;
-
   return (
     <Card>
       <div className="flex w-fit flex-row items-center gap-2 text-nowrap">
@@ -23,8 +18,8 @@ export default function NoteDisplay({
       </div>
       <p>{note.content}</p>
       <Form action="destroy" method="post" className="mt-4">
-        <Button disabled={!canMutate} theme="error" name="intent" type="submit" value="delete">
-          {isDeleting ? 'Deleting...' : 'Delete'}
+        <Button theme="error" name="intent" type="submit" value="delete">
+          Delete
         </Button>
       </Form>
     </Card>

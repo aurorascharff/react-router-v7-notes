@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet, useNavigation } from 'react-router';
+import { Link, NavLink, Outlet } from 'react-router';
 import type { Route } from './+types/notes';
 import { prisma } from '~/../db';
 import NavButton from '~/components/ui/NavButton';
@@ -17,9 +17,6 @@ export async function loader() {
 }
 
 export default function NotesRoute({ loaderData }: Route.ComponentProps) {
-  const navigation = useNavigation();
-  const isLoading = navigation.state === 'loading' && location.pathname !== '/notes/new';
-
   return (
     <div className="flex min-h-svh w-full flex-col gap-10 bg-gray-100">
       <header className="border-primary border-b bg-white py-4">
@@ -41,7 +38,6 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             <h2 className="mt-4 mb-2 text-xl">Notes</h2>
             <ul className="flex max-h-[250px] flex-col gap-1 overflow-y-auto md:max-h-[400px]">
               {loaderData.notes.map(({ id, title, favorite }) => {
-                const isLoadingNote = isLoading && navigation.location.pathname === `/notes/${id}`;
                 return (
                   <NavLink className="hover:no-underline" prefetch="intent" to={id} key={id}>
                     {({ isActive }) => {
@@ -49,7 +45,6 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                         <li
                           className={cn(
                             isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
-                            isLoadingNote && 'bg-primary/20 hover:bg-primary/20',
                             'flex w-full items-center justify-between rounded-sm px-4 py-2',
                           )}
                         >
@@ -65,7 +60,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             </ul>
           </div>
         </div>
-        <div className={cn('mt-0 md:mt-14', isLoading && 'animate-pulse', 'w-full xl:w-1/3')}>
+        <div className={cn('mt-0 md:mt-14', false && 'animate-pulse', 'w-full xl:w-1/3')}>
           <Outlet />
         </div>
       </main>
