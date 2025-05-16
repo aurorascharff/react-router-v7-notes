@@ -10,5 +10,5 @@ export default [
       route(':noteId/destroy', './pages/notes/destroy.tsx'),
     ]),
   ]),
-  route('notes.rss', './pages/feed.tsx'),
+  route('notes.rss', './pages/rss.tsx'),
 ] satisfies RouteConfig;
