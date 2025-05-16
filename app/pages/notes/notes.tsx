@@ -1,5 +1,5 @@
 import { href, isRouteErrorResponse, Link, useRouteError } from 'react-router';
-import type { Route } from './+types/notes._index';
+import type { Route } from './+types/notes';
 import { prisma } from '~/../db';
 import Card from '~/components/ui/Card';
 import ErrorMessage from '~/components/ui/ErrorMessage';

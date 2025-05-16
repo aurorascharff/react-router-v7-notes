@@ -15,7 +15,7 @@ export default function IndexRoute() {
               <Link to={href('/notes')}>View Notes</Link>
             </li>
             <li>
-              <Link to="/notes.rss">RSS</Link>
+              <Link to={href('/notes.rss')}>RSS</Link>
             </li>
             <li>
               <Link target="_blank" to="https://github.com/aurorascharff/react-router-v7-notes">

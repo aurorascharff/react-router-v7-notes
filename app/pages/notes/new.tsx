@@ -1,5 +1,5 @@
 import { Form, useRouteError, redirect, useNavigation } from 'react-router';
-import type { Route } from './+types/notes.new';
+import type { Route } from './+types/new';
 import { prisma } from '~/../db';
 import NoteDisplay from '~/components/NoteDisplay';
 import Button from '~/components/ui/Button';
