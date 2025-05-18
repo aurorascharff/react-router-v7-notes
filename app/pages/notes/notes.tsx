@@ -48,12 +48,14 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                     key={id}
                   >
                     {({ isActive, isPending }) => {
+                      const isPendingNav = isPending && location.pathname !== `/notes/${id}`;
+
                       return (
                         <li
                           className={cn(
                             'flex w-full items-center justify-between rounded-sm px-4 py-2',
                             isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
-                            isPending && 'bg-primary/20 hover:bg-primary/20',
+                            isPendingNav && 'bg-primary/20 hover:bg-primary/20',
                           )}
                         >
                           <span>{title}</span>
