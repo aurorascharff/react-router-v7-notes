@@ -38,7 +38,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
               Remind me...
             </Link>
             <h2 className="mt-4 mb-2 text-xl">Notes</h2>
-            <ul className="flex max-h-[250px] flex-col gap-1 overflow-y-auto md:max-h-[400px]">
+            <ul className="flex max-h-[250px] flex-col gap-1 overflow-auto md:max-h-[400px]">
               {loaderData.notes.map(({ id, title, favorite }) => {
                 return (
                   <NavLink

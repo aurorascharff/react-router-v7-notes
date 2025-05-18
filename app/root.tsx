@@ -12,7 +12,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="bg-gradient-radial flex min-h-svh">
+      <body className="flex min-h-dvh">
         {children}
         <ScrollRestoration />
         <Scripts />
