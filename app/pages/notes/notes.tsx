@@ -40,7 +40,6 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             <h2 className="mt-4 mb-2 text-xl">Notes</h2>
             <ul className="flex max-h-[250px] flex-col gap-1 overflow-y-auto md:max-h-[400px]">
               {loaderData.notes.map(({ id, title, favorite }) => {
-                const isLoadingNote = isLoading && navigation.location.pathname === `/notes/${id}`;
                 return (
                   <NavLink
                     className="hover:no-underline"
@@ -48,13 +47,13 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                     to={href('/notes/:noteId', { noteId: id })}
                     key={id}
                   >
-                    {({ isActive }) => {
+                    {({ isActive, isPending }) => {
                       return (
                         <li
                           className={cn(
-                            isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
-                            isLoadingNote && 'bg-primary/20 hover:bg-primary/20',
                             'flex w-full items-center justify-between rounded-sm px-4 py-2',
+                            isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
+                            isPending && 'bg-primary/20 hover:bg-primary/20',
                           )}
                         >
                           <span>{title}</span>
