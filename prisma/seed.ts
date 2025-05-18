@@ -4,10 +4,6 @@ const prisma = new PrismaClient();
 
 const NOTES = [
   {
-    content: 'Remember to review React hooks documentation for the upcoming project.',
-    title: 'React Hooks',
-  },
-  {
     content: 'TypeScript configuration for Next.js projects requires special attention to module resolution.',
     favorite: true,
     title: 'TypeScript Config',
@@ -35,10 +31,6 @@ const NOTES = [
   {
     content: 'React Context API is useful for passing data through the component tree without props drilling.',
     title: 'React Context',
-  },
-  {
-    content: 'Remember to set appropriate cache headers for static assets to improve performance.',
-    title: 'Web Performance',
   },
   {
     content: 'Test-driven development (TDD) can lead to more maintainable code and fewer bugs in production.',
@@ -103,7 +95,8 @@ const NOTES = [
     title: 'React Server Components',
   },
   {
-    content: 'Consider using Zod for runtime type validation to complement TypeScript&apos;s static type checking.',
+    // eslint-disable-next-line quotes
+    content: "Consider using Zod for runtime type validation to complement TypeScript's static type checking.",
     favorite: true,
     title: 'Data Validation',
   },
