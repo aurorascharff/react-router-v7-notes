@@ -94,9 +94,15 @@ The app has some, realistic added delay and that makes it not feel so good. And 
 
 Let's switch to another version of the app that has some UI enhancements using more of the browser framework of React Router.
 
+### Loading UI: home.tsx
+
+LIVE CODE: In the home.tsx, we will use a React Router specific hook called useNavigation. It will give you the current state of the navigation, and provide i.e whether the router is navigating, which we use here to mark the page as pending with css or text. This hook adds on top of our base case HTML web standard document with additional client-side, js enhanced features. This is React Router's way to do progressive enhancement.
+
 ### Loading UI: notes.tsx
 
-LIVE CODE: In the notes.tsx, we will use a React Router specific hooks around here which is the browser framework. This one is called useNavigation. It will give you the current state of the navigation, and provide i.e whether the router is navigating, which we use here to mark the page as pending with css. This hook adds on top of our base case HTML web standard document with additional client-side, js enhanced features. This is React Router's way to do progressive enhancement.
+LIVE CODE: We will again use the useNavigation hook to show a loading state when navigating to the notes page, here with CSS and a pulsing animation. However, to avoid running it during our creating of new note, we need to add a check for the pathname.
+
+As someone coming from Next.js, this feels weird because you never get global behavior to like that unless you specifically create it yourself with a context.
 
 We will also use the prop callbacks from NavLink to render and style the link based on its state, here isPending and isActive. Browser framework is used to enhance the UI with loading states and active states.
 
