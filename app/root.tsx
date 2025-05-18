@@ -12,7 +12,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Meta />
         <Links />
       </head>
-      <body className="flex min-h-dvh overflow-hidden">
+      <body className="flex min-h-dvh">
         {children}
         <ScrollRestoration />
         <Scripts />
