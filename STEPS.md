@@ -68,7 +68,7 @@ LIVE CODE ERROR BOUNDARY. Catch the not implemented error and show a custom erro
 
 There is a method post on this, which will call the route for the route module with its action. LIVE CODE ACTION. The action validates using zod and returns errors if invalid inside a badRequest wrapper. Customizable. Then it redirects. Show console of network tab to show the post and get requests. GET data note.new. POST data note.new with location in the equest. New GET for revalidation. Again, server-side mutation that updates the database, but there is a client side equivalent clientAction if we were not working with the server side.
 
-We don't need api routes to talk to our server from the client. Route module is it's own API route talking to itself.
+We don't need api routes to talk to our server from the client. Route module is it's own API route talking to itself. Using web standards like fetch and form submission.
 
 ## Revalidation: notes/new.tsx
 
