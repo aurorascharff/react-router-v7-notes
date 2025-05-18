@@ -42,20 +42,11 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                     to={href('/notes/:noteId', { noteId: id })}
                     key={id}
                   >
-                    {({ isActive }) => {
-                      return (
-                        <li
-                          className={cn(
-                            isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
-                            'flex w-full items-center justify-between rounded-sm px-4 py-2',
-                          )}
-                        >
-                          <span>{title}</span>
-                          <span className="sr-only">{favorite ? 'Favorite note' : ''}</span>
-                          <span className="text-yellow-400">{favorite ? '★' : ''}</span>
-                        </li>
-                      );
-                    }}
+                    <li className={cn('flex w-full items-center justify-between overflow-hidden rounded-sm px-4 py-2')}>
+                      <span className="mr-2 truncate">{title}</span>
+                      <span className="sr-only">{favorite ? 'Favorite note' : ''}</span>
+                      <span className="flex-shrink-0 text-yellow-400">{favorite ? '★' : ''}</span>
+                    </li>
                   </NavLink>
                 );
               })}

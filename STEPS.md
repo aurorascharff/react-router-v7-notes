@@ -98,6 +98,8 @@ Let's switch to another version of the app that has some UI enhancements using m
 
 LIVE CODE: In the notes.tsx, we will use a React Router specific hooks around here which is the browser framework. This one is called useNavigation. It will give you the current state of the navigation, and provide i.e whether the router is navigating, which we use here to mark the page as pending with css. This hook adds on top of our base case HTML web standard document with additional client-side, js enhanced features. This is React Router's way to do progressive enhancement.
 
+We will also use the prop callbacks from NavLink to render and style the link based on its state, here isPending and isActive. Browser framework is used to enhance the UI with loading states and active states.
+
 ### Pending UI + Optimistic UI: notes/detail.tsx
 
 LIVE CODE: Delete is enhanced with a disabled button again when the navigation is not idle and is on the intent "delete".
