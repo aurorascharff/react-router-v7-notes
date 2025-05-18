@@ -14,6 +14,8 @@ export async function loader() {
 }
 
 export default function NotesRoute({ loaderData }: Route.ComponentProps) {
+  const isLoading = false;
+
   return (
     <div className="flex w-full flex-col gap-10 bg-gray-100">
       <header className="border-primary border-b bg-white py-4">
@@ -35,6 +37,9 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             <h2 className="mt-4 mb-2 text-xl">Notes</h2>
             <ul className="flex max-h-[250px] flex-col gap-1 overflow-y-auto md:max-h-[400px]">
               {loaderData.notes.map(({ id, title, favorite }) => {
+                const isActive = false;
+                const isPendingNav = false;
+
                 return (
                   <NavLink
                     className="hover:no-underline"
@@ -42,10 +47,16 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                     to={href('/notes/:noteId', { noteId: id })}
                     key={id}
                   >
-                    <li className={cn('flex w-full items-center justify-between overflow-hidden rounded-sm px-4 py-2')}>
-                      <span className="mr-2 truncate">{title}</span>
+                    <li
+                      className={cn(
+                        'flex w-full items-center justify-between rounded-sm px-4 py-2',
+                        isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
+                        isPendingNav && 'bg-primary/20 hover:bg-primary/20',
+                      )}
+                    >
+                      <span>{title}</span>
                       <span className="sr-only">{favorite ? 'Favorite note' : ''}</span>
-                      <span className="flex-shrink-0 text-yellow-400">{favorite ? '★' : ''}</span>
+                      <span className="text-yellow-400">{favorite ? '★' : ''}</span>
                     </li>
                   </NavLink>
                 );
@@ -53,7 +64,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             </ul>
           </div>
         </div>
-        <div className={cn('mt-0 md:mt-14', false && 'animate-pulse', 'w-full xl:w-1/3')}>
+        <div className={cn('mt-0 md:mt-14', isLoading && 'animate-pulse', 'w-full xl:w-1/3')}>
           <Outlet />
         </div>
       </main>
