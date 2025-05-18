@@ -12,7 +12,7 @@ export default function HomePage() {
         <nav>
           <ul className="flex list-none gap-4 p-0 text-lg leading-none">
             <li>
-              <Link to={href('/notes')}>View Notes</Link>
+              <Link to={href('/notes')}>Load Notes</Link>
             </li>
             <li>
               <Link to={href('/notes.rss')}>RSS</Link>
