@@ -36,10 +36,10 @@ export function ErrorBoundary() {
 
   if (isRouteErrorResponse(error) && error.status === 404) {
     return (
-      <ErrorMessage>
+      <div>
         <p>There are no notes to display.</p>
         <Link to={href('/notes/new')}>Add your own</Link>
-      </ErrorMessage>
+      </div>
     );
   }
 
