@@ -5,8 +5,8 @@
   "type": "module",
   "scripts": {
     "build": "react-router build",
-    "typegen": "react-router typegen",
     "dev": "react-router dev",
+    "reveal": "react-router reveal",
     "lint": "eslint --cache --cache-location ./node_modules/.cache/eslint .",
     "start": "react-router-serve ./build/server/index.js",
     "prisma.studio": "npx prisma studio",
@@ -34,7 +34,6 @@
     "@eslint/eslintrc": "^3.3.1",
     "@eslint/js": "^9.26.0",
     "@react-router/dev": "^7.6.0",
-    "@react-router/fs-routes": "^7.6.0",
     "@tailwindcss/postcss": "^4.1.7",
     "@types/node": "^22.15.18",
     "@types/react": "^19.1.4",
