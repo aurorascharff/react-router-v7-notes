@@ -15,7 +15,7 @@ export default function HomePage() {
               <Link to={href('/notes')}>Load Notes</Link>
             </li>
             <li>
-              <Link to={href('/notes.rss')}>RSS</Link>
+              <a href={href('/notes.rss')}>RSS</a>
             </li>
             <li>
               <Link target="_blank" to="https://github.com/aurorascharff/react-router-v7-notes">
