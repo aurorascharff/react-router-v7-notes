@@ -10,7 +10,7 @@ export function meta() {
 
 export async function loader() {
   const notes = await prisma.note.findMany({
-    orderBy: [{ favorite: 'desc' }, { createdAt: 'desc' }],
+    orderBy: [{ createdAt: 'desc' }],
   });
   return { notes };
 }
