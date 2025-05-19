@@ -34,7 +34,7 @@ Error boundaries for each route module using useRouteError. Here we catch any er
 
 ## UI: home.tsx
 
-Lets look at home.tsx. Default/index child of the root.tsx. Showcase in app the page. Use the web! Central part of React Router. React Router feels familiar to old school devs. Less react-y. Learning the web when learning React Router. This is a RR Route Module for the index page. It's using the React Router Link component to provide client side navigation.
+Lets look at home.tsx. Default/index child of the root.tsx. Showcase in app the page. Use the web! Central part of React Router. React Router feels familiar to old school devs. Less react-y. Learning the web when learning React Router. This is a RR Route Module for the index page. It's using the React Router Link component to provide client side navigation. In the settings, this has been pre-rendered since it's static.
 
 It's also defining metadata to be collected for the head with this meta function. Can see it in the title "Notes".
 
