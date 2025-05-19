@@ -61,12 +61,10 @@ export default function NotesRoute() {
       </main>
       <footer className="self-end pt-8 pb-4">
         <div className="mx-10 flex max-w-xl gap-4 md:mx-40">
-          <Link reloadDocument to={href('/notes.rss')}>
-            RSS
-          </Link>
-          <Link target="_blank" reloadDocument to="https://github.com/aurorascharff/react-router-v7-notes">
+          <a href={href('/notes.rss')}>RSS</a>
+          <a target="_blank" href="https://github.com/aurorascharff/react-router-v7-notes" rel="noreferrer">
             GitHub
-          </Link>
+          </a>
         </div>
       </footer>
     </div>
