@@ -58,6 +58,8 @@ Here we catch the error that might occur when posting a new note to the db. We c
 
 ## Mutations: notes/new.tsx
 
+Showcase React router devtools, community extension for React Router. It shows the current route, the current location, and the current state of the router. It also shows the current data for the route modules.
+
 Relative route. Lets move to the notes.new.tsx route module. Default export has a form, capital letter. This is similar to our example from the slides. React Router Form component will provide extra features on top of default form component, such as client side nav avoiding full page reload.
 
 There is a method post on this, which will call the route for the route module with its action. Try the post, app error. LIVE CODE ERROR BOUNDARY. Catch the not implemented error and show a custom error message. Avoiding full app error.
