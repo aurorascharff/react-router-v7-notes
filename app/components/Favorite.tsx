@@ -1,4 +1,4 @@
-import { Form } from 'react-router';
+import { useFetcher } from 'react-router';
 import type { Note } from '@prisma/client';
 
 type Props = {
@@ -7,8 +7,10 @@ type Props = {
 };
 
 export default function Favorite({ disabled, note }: Props) {
+  const fetcher = useFetcher();
+
   return (
-    <Form method="post">
+    <fetcher.Form method="post">
       <button
         className="cursor-pointer text-2xl text-yellow-400"
         disabled={disabled}
@@ -18,6 +20,6 @@ export default function Favorite({ disabled, note }: Props) {
       >
         {note.favorite ? '★' : '☆'}
       </button>
-    </Form>
+    </fetcher.Form>
   );
 }
