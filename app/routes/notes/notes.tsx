@@ -41,30 +41,23 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             <ul className="flex max-h-[250px] flex-col gap-1 overflow-auto md:max-h-[400px]">
               {loaderData.notes.map(({ id, title, favorite }) => {
                 return (
-                  <NavLink
-                    className="hover:no-underline"
-                    prefetch="intent"
-                    to={href('/notes/:noteId', { noteId: id })}
-                    key={id}
-                  >
-                    {({ isActive, isPending }) => {
-                      const isPendingNav = isPending && location.pathname !== `/notes/${id}`;
-
-                      return (
-                        <li
-                          className={cn(
-                            'flex w-full items-center justify-between rounded-sm px-4 py-2',
-                            isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
-                            isPendingNav && 'bg-primary/20 hover:bg-primary/20',
-                          )}
-                        >
-                          <span>{title}</span>
-                          <span className="sr-only">{favorite ? 'Favorite note' : ''}</span>
-                          <span className="text-yellow-400">{favorite ? '★' : ''}</span>
-                        </li>
-                      );
-                    }}
-                  </NavLink>
+                  <li key={id}>
+                    <NavLink
+                      className={({ isActive, isPending }) => {
+                        return cn(
+                          'flex w-full items-center justify-between rounded-sm px-4 py-2 hover:no-underline',
+                          isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
+                          isPending && !isActive && 'bg-primary/20 hover:bg-primary/20',
+                        );
+                      }}
+                      prefetch="intent"
+                      to={href('/notes/:noteId', { noteId: id })}
+                    >
+                      <span>{title}</span>
+                      <span className="sr-only">{favorite ? 'Favorite note' : ''}</span>
+                      <span className="text-yellow-400">{favorite ? '★' : ''}</span>
+                    </NavLink>
+                  </li>
                 );
               })}
             </ul>
