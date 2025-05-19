@@ -82,7 +82,7 @@ Go to detail.tsx. This is a dynamic route with params. Show config routes.ts for
 
 It's also using the useRouteError hook to catch any errors that might occur when fetching the data. It's using the error hook to get the error and show it in the UI and handle 404 errors differently.
 
-NoteDisplay can delete a note, but this is now a relative URL using a action="/destroy". Using a form as well which is unfamiliar for React devs who usually just do button onClicks. This is a relative URL that will call the route module with the action destroy. Defined with code based routing. It's using the action to delete the note from the database, and redirect. Web standard stuff that at least for me is very unfamiliar as a React SPA dev originally. Delete checks for the intent to be expected. This can be used to handle multiple actions in the same route module. Then deletes from the db and redirects.
+NoteDisplay can delete a note, but this is now a relative URL using a action="/destroy". Using a form as well which is unfamiliar for React devs who usually just do button onClicks. This is a relative URL, resource route, that will call the route module with the action destroy. Defined with code based routing. It's using the action to delete the note from the database, and redirect. Web standard stuff that at least for me is very unfamiliar as a React SPA dev originally. Delete checks for the intent to be expected. This can be used to handle multiple actions in the same route module. Then deletes from the db and redirects.
 
 It can also be favorited. Maybe a bit weird to see a form for this. This triggers the relative URL action="/". This is a relative URL that will call the route module with the action favorite. Here we use a fetcher Form because we are not navigating anywhere and we don't want to trigger a new push to the router.
 
@@ -100,15 +100,15 @@ LIVE CODE: In the home.tsx, we will use a React Router specific hook called useN
 
 LIVE CODE: We will again use the useNavigation hook to show a loading state when navigating to the notes page, here with CSS and a pulsing animation.
 
+However, to avoid running it during our creating of new note, we need to add a check for the pathname.
+
+As someone coming from Next.js, this feels weird because you never get global behavior to like that unless you specifically create it yourself with a context.
+
 We will also change to NavLink and use the prop callbacks from NavLink to render and style the link based on its state, here isPending and isActive. Again check the route. Browser framework is used to enhance the UI with loading states and active states.
 
 ### Pending UI + Optimistic UI: notes/detail.tsx
 
 LIVE CODE: Delete is enhanced with a disabled button again when the navigation is not idle and is on the intent "delete".
-
-However, to avoid running it during our creating of new note, we need to add a check for the pathname.
-
-As someone coming from Next.js, this feels weird because you never get global behavior to like that unless you specifically create it yourself with a context.
 
 For the favorite, we can get the state of this fetcher form locally and do another optimistic update. Fetcher is local scoped to the component.
 
