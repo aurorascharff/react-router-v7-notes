@@ -1,5 +1,4 @@
 import { Link, NavLink, Outlet, href } from 'react-router';
-import type { Route } from '../../routes/notes/+types/notes';
 import type { Note } from '@prisma/client';
 import NavButton from '~/components/ui/NavButton';
 import { cn } from '~/utils/style';
@@ -8,13 +7,9 @@ export function meta() {
   return [{ content: 'React Router v7 Notes', name: 'description' }, { title: 'Notes' }];
 }
 
-export async function loader() {
-  const notes: Note[] = [];
-  return { notes };
-}
-
-export default function NotesRoute({ loaderData }: Route.ComponentProps) {
+export default function NotesRoute() {
   const isLoading = false;
+  const notes: Note[] = [];
 
   return (
     <div className="flex w-full flex-col gap-10 bg-gray-100">
@@ -36,7 +31,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
             </Link>
             <h2 className="mt-4 mb-2 text-xl">Notes</h2>
             <ul className="flex max-h-[250px] flex-col gap-1 overflow-auto md:max-h-[400px]">
-              {loaderData.notes.map(({ id, title, favorite }) => {
+              {notes.map(({ id, title, favorite }) => {
                 const isActive = false;
                 const isPendingNav = false;
 
