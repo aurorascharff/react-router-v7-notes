@@ -2,13 +2,9 @@
 
 ## Setup and starting point
 
-Let's review the setup and starting point. I'm using React Router v7 here, then tailwind for CSS and a Prisma Postgres database, using Prisma as the ORM.
+In fullscreen: Let's review the setup and starting point. I'm using React Router v7 here, then tailwind for CSS and a Prisma Postgres database, using Prisma as the ORM.
 
-## All features
-
-Be in fullscreen version in deployed app.
-
-Show the app. We have a list of notes, a form to add new notes, and a way to navigate. View notes, get random note, add new link, create + validate, delete, favorite.
+Half completed notes app. We have a container for notes, a form to add new notes. Get random note, view notes, add new link, delete button, favorite button. Let's review what's here so far and finish the implementation.
 
 ## Boilerplate
 
