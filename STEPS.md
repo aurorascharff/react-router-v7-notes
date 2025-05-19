@@ -100,15 +100,15 @@ LIVE CODE: In the home.tsx, we will use a React Router specific hook called useN
 
 LIVE CODE: We will again use the useNavigation hook to show a loading state when navigating to the notes page, here with CSS and a pulsing animation.
 
+However, to avoid running it during our creating of new note, we need to add a check for the pathname.
+
+As someone coming from Next.js, this feels weird because you never get global behavior to like that unless you specifically create it yourself with a context.
+
 We will also change to NavLink and use the prop callbacks from NavLink to render and style the link based on its state, here isPending and isActive. Again check the route. Browser framework is used to enhance the UI with loading states and active states.
 
 ### Pending UI + Optimistic UI: notes/detail.tsx
 
 LIVE CODE: Delete is enhanced with a disabled button again when the navigation is not idle and is on the intent "delete".
-
-However, to avoid running it during our creating of new note, we need to add a check for the pathname.
-
-As someone coming from Next.js, this feels weird because you never get global behavior to like that unless you specifically create it yourself with a context.
 
 For the favorite, we can get the state of this fetcher form locally and do another optimistic update. Fetcher is local scoped to the component.
 
