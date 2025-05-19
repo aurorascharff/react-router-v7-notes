@@ -76,7 +76,7 @@ Show network tab loading and revalidating.
 
 Lets move to a more complex route module with lots of features.
 
-Go to detail.tsx. This is a dynamic route with params. Show it in the app. It's a route module for a single note. It's using the loader to fetch the data for the note with the id from the database. It's using the loaderData prop to pass the data to the component, and throw a 404 if no note is found.
+Go to detail.tsx. This is a dynamic route with params. Show config routes.ts for this. Show it in the app. It's a route module for a single note. It's using the loader to fetch the data for the note with the id from the database. It's using the loaderData prop to pass the data to the component, and throw a 404 if no note is found.
 
 It's also using the useRouteError hook to catch any errors that might occur when fetching the data. It's using the error hook to get the error and show it in the UI and handle 404 errors differently.
 
