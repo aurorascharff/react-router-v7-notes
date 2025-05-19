@@ -1,4 +1,4 @@
-import { Link, NavLink, Outlet, href } from 'react-router';
+import { Link, Outlet, href } from 'react-router';
 import type { Note } from '@prisma/client';
 import NavButton from '~/components/ui/NavButton';
 import { cn } from '~/utils/style';
@@ -36,7 +36,7 @@ export default function NotesRoute() {
                 const isPendingNav = false;
 
                 return (
-                  <NavLink
+                  <Link
                     className="hover:no-underline"
                     prefetch="intent"
                     to={href('/notes/:noteId', { noteId: id })}
@@ -53,7 +53,7 @@ export default function NotesRoute() {
                       <span className="sr-only">{favorite ? 'Favorite note' : ''}</span>
                       <span className="text-yellow-400">{favorite ? '★' : ''}</span>
                     </li>
-                  </NavLink>
+                  </Link>
                 );
               })}
             </ul>

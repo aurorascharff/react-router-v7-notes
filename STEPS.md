@@ -102,7 +102,7 @@ LIVE CODE: We will again use the useNavigation hook to show a loading state when
 
 As someone coming from Next.js, this feels weird because you never get global behavior to like that unless you specifically create it yourself with a context.
 
-We will also use the prop callbacks from NavLink to render and style the link based on its state, here isPending and isActive. Again check the route. Browser framework is used to enhance the UI with loading states and active states.
+We will also change to NavLink and use the prop callbacks from NavLink to render and style the link based on its state, here isPending and isActive. Again check the route. Browser framework is used to enhance the UI with loading states and active states.
 
 ### Pending UI + Optimistic UI: notes/detail.tsx
 
