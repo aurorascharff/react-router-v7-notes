@@ -33,27 +33,23 @@ export default function NotesRoute() {
             <ul className="flex max-h-[250px] flex-col gap-1 overflow-auto md:max-h-[400px]">
               {notes.map(({ id, title, favorite }) => {
                 const isActive = false;
-                const isPendingNav = false;
-
+                const isPending = false;
                 return (
-                  <Link
-                    className="hover:no-underline"
-                    prefetch="intent"
-                    to={href('/notes/:noteId', { noteId: id })}
-                    key={id}
-                  >
-                    <li
+                  <li key={id}>
+                    <Link
                       className={cn(
-                        'flex w-full items-center justify-between rounded-sm px-4 py-2',
+                        'flex w-full items-center justify-between rounded-sm px-4 py-2 hover:no-underline',
                         isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
-                        isPendingNav && 'bg-primary/20 hover:bg-primary/20',
+                        isPending && !isActive && 'bg-primary/20 hover:bg-primary/20',
                       )}
+                      prefetch="intent"
+                      to={href('/notes/:noteId', { noteId: id })}
                     >
                       <span>{title}</span>
                       <span className="sr-only">{favorite ? 'Favorite note' : ''}</span>
                       <span className="text-yellow-400">{favorite ? '★' : ''}</span>
-                    </li>
-                  </Link>
+                    </Link>
+                  </li>
                 );
               })}
             </ul>
