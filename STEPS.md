@@ -24,15 +24,15 @@ Start with root.tsx. This is the root route module. It has a special Layout expo
 
 ## Layouts: root.tsx
 
-App has a Outlet component, the outlet is for defining this routes children routes, using nested layouts here. Defined as a layout in routes.ts. This allows us to build complex UIs. And React Router can fetch data for all nested routes in parallel. A parent route without a path, used exclusively for grouping child routes inside a specific layout.
+App has a Outlet component, the outlet is for defining this routes children routes, using nested layouts here. This allows us to build complex UIs. And React Router can fetch data for all nested routes in parallel. A parent route without a path, used exclusively for grouping child routes inside a specific layout.
 
 ## Error boundaries: root.tsx
 
-Error boundaries for each route module using useRouteError. Here we catch any error that might occur. We can show a custom error message here. We can also use the error hook to get the error and show it in the UI.
+Error boundaries for each route module using useRouteError. Here we catch any error that might occur. THROW ERROR. We can show a custom error message here. We can also use the error hook to get the error and show it in the UI. Handling them differently based on the error code. Global error boundary.
 
 ## UI: home.tsx
 
-Lets look at home.tsx. Default/index child of the root.tsx. Showcase in app the page. Use the web! Central part of React Router. React Router feels familiar to old school devs. Less react-y. Learning the web when learning React Router. This is a RR Route Module for the index page. It's using the React Router Link component to provide client side navigation. In the settings, this has been pre-rendered since it's static.
+Lets look at routes/home.tsx. Default/index child of the root.tsx. Showcase in app the page. Use the web! Central part of React Router. React Router feels familiar to old school devs. Less react-y. Learning the web when learning React Router. This is a RR Route Module for the index page. It's using the React Router Link component to provide client side navigation. In the settings, this has been pre-rendered since it's static.
 
 It's also defining metadata to be collected for the head with this meta function. Can see it in the title "Notes".
 
