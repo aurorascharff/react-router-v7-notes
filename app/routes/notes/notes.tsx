@@ -1,4 +1,4 @@
-import { Link, Outlet, href } from 'react-router';
+import { Link, href } from 'react-router';
 import type { Note } from '@prisma/client';
 import NavButton from '~/components/ui/NavButton';
 import { cn } from '~/utils/style';
@@ -54,9 +54,7 @@ export default function NotesRoute() {
             </ul>
           </div>
         </div>
-        <div className={cn('mt-0 md:mt-14', isLoading && 'animate-pulse', 'w-full xl:w-1/3')}>
-          <Outlet />
-        </div>
+        <div className={cn('mt-0 md:mt-14', isLoading && 'animate-pulse', 'w-full xl:w-1/3')} />
       </main>
       <footer className="self-end pt-8 pb-4">
         <div className="mx-10 flex max-w-xl gap-4 md:mx-40">
