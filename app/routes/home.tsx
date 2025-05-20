@@ -23,9 +23,9 @@ export default function HomePage() {
               <a href={href('/notes.rss')}>RSS</a>
             </li>
             <li>
-              <Link target="_blank" to="https://github.com/aurorascharff/react-router-v7-notes">
+              <a target="_blank" href="https://github.com/aurorascharff/react-router-v7-notes" rel="noreferrer">
                 GitHub
-              </Link>
+              </a>
             </li>
           </ul>
         </nav>

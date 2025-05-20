@@ -50,7 +50,6 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                           isPending && !isActive && 'bg-primary/20 hover:bg-primary/20',
                         );
                       }}
-                      prefetch="intent"
                       to={href('/notes/:noteId', { noteId: id })}
                     >
                       <span>{title}</span>
