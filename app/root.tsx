@@ -1,9 +1,11 @@
 import './globals.css';
 
-import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration } from 'react-router';
+import { isRouteErrorResponse, Links, Meta, Outlet, Scripts, ScrollRestoration, useLocation } from 'react-router';
 import type { Route } from './+types/root';
 
 export function Layout({ children }: { children: React.ReactNode }) {
+  const location = useLocation();
+
   return (
     <html lang="en">
       <head>
@@ -16,6 +18,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
+        <div className="fixed bottom-4 left-10 z-50 text-xl text-gray-500 italic">
+          Current location: {location.pathname}
+        </div>
       </body>
     </html>
   );
