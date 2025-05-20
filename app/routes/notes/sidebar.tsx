@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet, useNavigation, href } from 'react-router';
-import type { Route } from './+types/notes';
+import type { Route } from './+types/sidebar';
 import { prisma } from '~/../db';
 import NavButton from '~/components/ui/NavButton';
 import { cn } from '~/utils/style';
