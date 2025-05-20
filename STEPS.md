@@ -50,27 +50,27 @@ Showcase React router devtools, community extension for React Router. It shows t
 
 ## Errors: notes/random-note.tsx
 
-Now also provide an index route random-note.tsx. Turn the notes into a layout with prefixes. Add the index route. Add the Outlet component, the outlet is for defining this routes children routes, using nested layouts here again.
+Now let's make this list persist and show something else on another part of the screen. Turn the notes into a layout with prefixes. Provide an index route random-note.tsx rather than just this list. Add the index route. Add the Outlet component, the outlet is for defining this routes children routes, using nested layouts here again.
 
 It's rendered in the outlet on the route. It's using a loader to fetch a random note. Throws a 404 if no note is found.
 
-Here we catch the error that might occur when posting a new note to the db. We can show a custom error message here. We can also use the error hook to get the error and show it in the UI. Here catching a 404 error to display a custom message with a link to the notes page. Using the href utility to get type safety again.
+Here we catch the error that might occur when posting a new note to the db. We can show a custom error message here. We can also use the error hook to get the error and show it in the UI. Here catching a 404 error to display a custom message with a link to the notes page. Using the href utility to get type safety again. Define random note as undefined to show the error.
 
-## Mutations: notes/new.tsx
+## Mutations, revalidation: notes/new.tsx
 
-LIVE CODE ADD ROUTE. Relative route. Lets move to the notes.new.tsx route module. Default export has a form, capital letter. This is similar to our example from the slides. React Router Form component will provide extra features on top of default form component, such as client side nav avoiding full page reload.
+We have an href error here in the notes.tsx, lets add it. LIVE CODE ADD ROUTE. Relative route. Lets move to the notes.new.tsx route module. Default export has a form, capital letter. React Router Form component will provide extra features on top of default form component, such as client side nav avoiding full page reload.
 
 There is a method post on this, which will call the route for the route module with its action. Try the post, app error. LIVE CODE ERROR BOUNDARY. Catch the not implemented error and show a custom error message. Avoiding full app error.
 
-LIVE CODE ACTION. The action validates using zod and returns errors if invalid inside a badRequest wrapper. Customizable. Then it redirects. Show console of network tab to show the post and get requests. GET data note.new. POST data note.new with location in the equest. New GET for revalidation. Again, server-side mutation that updates the database, but there is a client side equivalent clientAction if we were not working with the server side.
+LIVE CODE ACTION. The action validates using zod and returns errors if invalid inside a badRequest wrapper. Customizable. Again, server-side mutation that updates the database, but there is a client side equivalent clientAction if we were not working with the server side.
 
 We don't need api routes to talk to our server from the client. Route module is it's own API route talking to itself. Using web standards like fetch and form submission.
 
-## Revalidation: notes/new.tsx
-
 Data is automatically revalidates. No fuss with adding items to lists. It's always the same. No manual revalidation. It's always in sync with the server. We can push or filter lists client side.
 
-Show network tab loading and revalidating.
+Show console of network tab to show the post and get requests. GET data note.new. POST data note.new with location in the request. New GET for revalidation.
+
+Use errors in the form with actionData from the route. Add redirect.
 
 ## RRM for single note: notes/detail.tsx
 
@@ -80,23 +80,27 @@ Go to detail.tsx. This is a dynamic route with params. Show config routes.ts for
 
 It's also using the useRouteError hook to catch any errors that might occur when fetching the data. It's using the error hook to get the error and show it in the UI and handle 404 errors differently.
 
-NoteDisplay can delete a note, but this is now a relative URL using a action="/destroy". Using a form as well which is unfamiliar for React devs who usually just do button onClicks. This is a relative URL, resource route, that will call the route module with the action destroy. Defined with code based routing. It's using the action to delete the note from the database, and redirect. Web standard stuff that at least for me is very unfamiliar as a React SPA dev originally. Delete checks for the intent to be expected. This can be used to handle multiple actions in the same route module. Then deletes from the db and redirects.
+It be favorited. Maybe a bit weird to see a form for this. This triggers the relative URL action="/". This is a relative URL that will call the route module with the action favorite. Here we use a fetcher Form because we are not navigating anywhere and we don't want to trigger a new push to the router.
 
-It can also be favorited. Maybe a bit weird to see a form for this. This triggers the relative URL action="/". This is a relative URL that will call the route module with the action favorite. Here we use a fetcher Form because we are not navigating anywhere and we don't want to trigger a new push to the router.
+NoteDisplay can delete a note, but this is now a relative URL using a action="/destroy". LIVE CODE ADD ROUTE. Using a form as well which is unfamiliar for React devs who usually just do button onClicks. This is a relative URL, resource route, that will call the route module with the action destroy. Defined with code based routing.
+
+It's using the action to delete the note from the database, and redirect. Web standard stuff that at least for me is very unfamiliar as a React SPA dev originally. Delete checks for the intent to be expected. This can be used to handle multiple actions in the same route module. Then deletes from the db and redirects.
 
 ## Browser framework
 
-The app has some, realistic added delay and that makes it not feel so good. And until we didn't actually use that much of the browser framework, only Form and Links and prefetching etc. Does this feel like React? We are able to create all this without any React-stuff. Amazing right?
+And until we didn't actually use that much of the browser framework, only Form and Links and prefetching etc. Does this feel like React? We are able to create all this without any React-stuff. Amazing right?
 
-Thats all good, but for a good user experience we need to add some loading states and optimistic UI. We need to showcase whenever the user clicks by providing instant feedback. This is where the browser framework comes in. Let's start adding some UI enhancements using more of the browser framework of React Router.
+LIVE CODE add some, realistic added delay and that makes it not feel so good. Loader add, action delete, loader detail, loader notes.
 
-### Loading UI: home.tsx
+For a good user experience we need to add some loading states and optimistic UI. We need to showcase whenever the user clicks by providing instant feedback. This is where the browser framework comes in. Let's start adding some UI enhancements using more of the browser framework of React Router.
+
+### Pending UI: home.tsx
 
 LIVE CODE: In the home.tsx, we will use a React Router specific hook called useNavigation. It will give you the current state of the navigation, and provide i.e whether the router is navigating, which we use here to mark the page as pending with css or text. This hook adds on top of our base case HTML web standard document with additional client-side, js enhanced features. This is React Router's way to do progressive enhancement.
 
-### Loading UI: notes/sidebar.tsx
+### Pending UI: notes/notes.tsx
 
-LIVE CODE: We will again use the useNavigation hook to show a loading state when navigating to the notes page, here with CSS and a pulsing animation.
+LIVE CODE: We will again use the useNavigation hook to show a loading state when navigating to the notes page, here with CSS and a pulsing animation. noteIsLoading snippet.
 
 However, to avoid running it during our creating of new note, we need to add a check for the pathname.
 
@@ -106,13 +110,13 @@ We will also change to NavLink and use the prop callbacks from NavLink to render
 
 ### Pending UI + Optimistic UI: notes/detail.tsx
 
-LIVE CODE: Delete is enhanced with a disabled button again when the navigation is not idle and is on the intent "delete".
+LIVE CODE: Delete is enhanced with a disabled button again when the navigation is not idle and is on the intent "delete". noteIsDeleting snippet.
 
 For the favorite, we can get the state of this fetcher form locally and do another optimistic update. Fetcher is local scoped to the component.
 
 ### Optimistic UI: notes/new.tsx
 
-LIVE CODE: It's doing optimistic UI by returning a view of a JokeDisplay if the validation succeeds. This is a client side update that will show the note in the list before the server has responded.
+LIVE CODE: It's doing optimistic UI by returning a view of a JokeDisplay if the validation succeeds. This is a client side update that will show the note in the list before the server has responded. noteIsFavoriting snippet.
 
 ## Progressive enhancement turn off JS
 
@@ -120,8 +124,10 @@ Go to fullscreen app.
 
 Turn off JS and see that the app still works. Web fundamentals in play to navigate, submit forms. Just lacking the client side enhancement of prefetching and client side navigation. And no client side loading state. And optimistic updates. Can even favorite because it's a form.
 
-Can return errors from the form and delete notes. But we don't get client side pending state or optimistic updates. Thats all a progressive enhancement of this base case web standard application.
+Can return errors from the form and delete notes. But we don't get client side pending state or optimistic updates. Thats all a progressive enhancement of this base case web standard application. Resilient.
+
+Turn on JS and see the client side enhancements again.
 
 ## Conclusion
 
-We still didn't use any useState or useEffect here. But we can of course add it to our relevant components without any problem in the future. You know how to do that! React Router solves problems with RRM and additional hooks. Feels native to web. Can integrate any libs like normal for more react stuff. Add in React Query or any sort of client side stuff based on need.
+Feels native to web. We still didn't use any useState or useEffect here. But we can of course add it to our relevant components without any problem in the future. You know how to do that! React Router solves problems with RRM and additional hooks. Can integrate any libs like normal for more react stuff. Add in React Query or any sort of client side stuff based on need.
