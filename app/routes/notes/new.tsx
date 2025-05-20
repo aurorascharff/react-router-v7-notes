@@ -13,17 +13,19 @@ import { noteSchema } from '~/validations/noteSchema';
 
 export async function action({ request }: Route.ActionArgs) {
   const form = await request.formData();
+  const title = form.get('title') as string;
+  const content = form.get('content') as string;
   const result = noteSchema.safeParse({
-    content: form.get('content'),
-    title: form.get('title'),
+    content,
+    title,
   });
 
   if (!result.success) {
     return badRequest({
       fieldErrors: result.error.formErrors.fieldErrors,
       fields: {
-        content: form.get('content') as string,
-        title: form.get('title') as string,
+        content,
+        title,
       },
     });
   }

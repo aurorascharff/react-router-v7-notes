@@ -22,5 +22,37 @@
             "  }",
             "}"
         ],
+    },
+    "redirectToNote": {
+        "scope": "typescriptreact",
+        "prefix": "redirectToNote",
+        "body": [
+            "return redirect(href('/notes/:noteId', { noteId: note.id }));"
+        ]
+    }
+    ,
+    "noteIsLoading": {
+        "scope": "typescriptreact",
+        "prefix": "noteIsLoading",
+        "body": [
+            "const navigation = useNavigation();",
+            "const isLoading = navigation.state === 'loading' && location.pathname !== '/notes/new';"
+        ]
+    }
+    ,
+    "noteIsDeleting": {
+        "scope": "typescriptreact",
+        "prefix": "noteIsDeleting",
+        "body": [
+            "const navigation = useNavigation();",
+            "const isDeleting = navigation.formData?.get('intent') === 'delete';"
+        ]
+    },
+    "noteIsFavoriting": {
+        "scope": "typescriptreact",
+        "prefix": "noteIsFavoriting",
+        "body": [
+            "const favorite = fetcher.formData ? fetcher.formData.get('favorite') === 'true' : note.favorite;"
+        ]
     }
 }
