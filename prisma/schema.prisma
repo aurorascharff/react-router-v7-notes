@@ -13,7 +13,7 @@ datasource db {
 }
 
 model Note {
-  id        String   @id @default(uuid())
+  id        Int      @id @default(autoincrement())
   createdAt DateTime @default(now())
   favorite  Boolean  @default(false)
   updatedAt DateTime @updatedAt
