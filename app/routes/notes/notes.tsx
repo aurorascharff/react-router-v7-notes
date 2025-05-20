@@ -42,7 +42,6 @@ export default function NotesRoute() {
                         isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
                         isPending && !isActive && 'bg-primary/20 hover:bg-primary/20',
                       )}
-                      prefetch="intent"
                       to={href('/notes/:noteId', { noteId: id })}
                     >
                       <span>{title}</span>
