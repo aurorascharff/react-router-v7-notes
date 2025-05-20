@@ -24,7 +24,7 @@ Start with root.tsx. This is the root route module. It has a special Layout expo
 
 ## Layouts: root.tsx
 
-App has a Outlet component, the outlet is for defining this routes children routes, using nested layouts here. Defined as a layout in routes.ts. This allows us to build complex UIs. And React Router can fetch data for all nested routes in parallel.
+App has a Outlet component, the outlet is for defining this routes children routes, using nested layouts here. Defined as a layout in routes.ts. This allows us to build complex UIs. And React Router can fetch data for all nested routes in parallel. A parent route without a path, used exclusively for grouping child routes inside a specific layout.
 
 ## Error boundaries: root.tsx
 
