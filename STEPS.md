@@ -126,4 +126,4 @@ Can return errors from the form and delete notes. But we don't get client side p
 
 ## Conclusion
 
-We still didn't use any useState or useEffect here. But we can of course add it to our relevant components without any problem in the future. You know how to do that! React Router solves problems with RRM and additional hooks. Can integrate any libs like normal for more react stuff. Feels native to web. Add in React Query or any sort of client side stuff based on need.
+We still didn't use any useState or useEffect here. But we can of course add it to our relevant components without any problem in the future. You know how to do that! React Router solves problems with RRM and additional hooks. Feels native to web. Can integrate any libs like normal for more react stuff. Add in React Query or any sort of client side stuff based on need.
