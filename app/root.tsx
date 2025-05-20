@@ -18,7 +18,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         {children}
         <ScrollRestoration />
         <Scripts />
-        <div className="fixed bottom-4 left-10 z-50 text-lg text-gray-500 italic">
+        <div className="fixed bottom-3 left-10 z-50 text-lg text-gray-500 italic">
           Current location: {location.pathname}
         </div>
       </body>
