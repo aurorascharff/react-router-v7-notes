@@ -90,7 +90,7 @@ It can also be favorited. Maybe a bit weird to see a form for this. This trigger
 
 The app has some, realistic added delay and that makes it not feel so good. And until we didn't actually use that much of the browser framework, only Form and Links and prefetching etc. Does this feel like React? We are able to create all this without any React-stuff. Amazing right?
 
-Let's switch to another version of the app that has some UI enhancements using more of the browser framework of React Router.
+Thats all good, but for a good user experience we need to add some loading states and optimistic UI. We need to showcase whenever the user clicks by providing instant feedback. This is where the browser framework comes in. Let's start adding some UI enhancements using more of the browser framework of React Router.
 
 ### Loading UI: home.tsx
 
