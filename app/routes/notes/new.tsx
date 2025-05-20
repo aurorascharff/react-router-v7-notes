@@ -22,8 +22,8 @@ export async function action({ request }: Route.ActionArgs) {
 
   if (!result.success) {
     return badRequest({
-      fieldErrors: result.error.formErrors.fieldErrors,
-      fields: {
+      errors: result.error.formErrors.fieldErrors,
+      values: {
         content,
         title,
       },
@@ -67,15 +67,15 @@ export default function NewNoteRoute({ actionData }: Route.ComponentProps) {
       <Form method="post">
         <Input
           label="Title:"
-          errors={actionData?.fieldErrors?.title}
-          defaultValue={actionData?.fields?.title}
+          errors={actionData?.errors?.title}
+          defaultValue={actionData?.values?.title}
           name="title"
           type="text"
         />
         <TextArea
           label="Content:"
-          errors={actionData?.fieldErrors?.content}
-          defaultValue={actionData?.fields?.content}
+          errors={actionData?.errors?.content}
+          defaultValue={actionData?.values?.content}
           name="content"
         />
         <div className="flex justify-end">
