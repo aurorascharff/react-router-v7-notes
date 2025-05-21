@@ -62,13 +62,11 @@ We have an href error here in the notes.tsx, lets add it. LIVE CODE ADD ROUTE. R
 
 There is a method post on this, which will call the route for the route module with its action. Try the post, app error. LIVE CODE ERROR BOUNDARY. Catch the not implemented error and show a custom error message. Avoiding full app error.
 
-LIVE CODE ACTION. The action validates using zod and returns errors if invalid inside a badRequest wrapper. Customizable. Again, server-side mutation that updates the database, but there is a client side equivalent clientAction if we were not working with the server side.
-
 We don't need api routes to talk to our server from the client. Route module is it's own API route talking to itself. Using web standards like fetch and form submission.
 
-Data is automatically revalidates. No fuss with adding items to lists. It's always the same. No manual revalidation. It's always in sync with the server. We can push or filter lists client side.
+LIVE CODE ACTION. Data is automatically revalidates. No fuss with adding items to lists. It's always the same. No manual revalidation. It's always in sync with the server. We can push or filter lists client side. Show console of network tab to show the post and get requests. GET data note.new. POST data note.new with location in the request. New GET for revalidation.
 
-Show console of network tab to show the post and get requests. GET data note.new. POST data note.new with location in the request. New GET for revalidation.
+The action will now validate using zod and returns errors if invalid inside a badRequest wrapper. Customizable. Again, server-side mutation that updates the database, but there is a client side equivalent clientAction if we were not working with the server side.
 
 Use errors in the form with actionData from the route. Add redirect.
 
