@@ -50,7 +50,7 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                           isPending && !isActive && 'bg-primary/20 hover:bg-primary/20',
                         );
                       }}
-                      to={href('/notes/:noteId', { noteId: id })}
+                      to={href('/notes/:noteId', { noteId: id.toString() })}
                     >
                       <span>{title}</span>
                       <span className="sr-only">{favorite ? 'Favorite note' : ''}</span>

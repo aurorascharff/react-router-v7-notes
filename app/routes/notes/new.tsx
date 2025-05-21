@@ -23,10 +23,6 @@ export async function action({ request }: Route.ActionArgs) {
   if (!result.success) {
     return badRequest({
       errors: result.error.formErrors.fieldErrors,
-      values: {
-        content,
-        title,
-      },
     });
   }
 
@@ -65,19 +61,8 @@ export default function NewNoteRoute({ actionData }: Route.ComponentProps) {
     <Card>
       <h2 className="text-2xl">Add a new note</h2>
       <Form method="post">
-        <Input
-          label="Title:"
-          errors={actionData?.errors?.title}
-          defaultValue={actionData?.values?.title}
-          name="title"
-          type="text"
-        />
-        <TextArea
-          label="Content:"
-          errors={actionData?.errors?.content}
-          defaultValue={actionData?.values?.content}
-          name="content"
-        />
+        <Input label="Title:" errors={actionData?.errors?.title} name="title" type="text" />
+        <TextArea label="Content:" errors={actionData?.errors?.content} name="content" />
         <div className="flex justify-end">
           <Button type="submit">Add</Button>
         </div>
