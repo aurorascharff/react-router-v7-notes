@@ -72,7 +72,7 @@ Use errors in the form with actionData from the route. Add redirect.
 
 ## RRM for single note: notes/detail.tsx
 
-Lets move to a more complex route module with lots of features. LIVE CODE ADD ROUTE.
+Lets move to a more complex route module with lots of features. LIVE CODE ADD ROUTE. LIVE CODE ADD DESTROY ROUTE. This is a resource route that will only contain an action.
 
 Go to detail.tsx. This is a dynamic route with params. Show config routes.ts for this. Show it in the app. It's a route module for a single note. It's using the loader to fetch the data for the note with the id from the database. It's using the loaderData prop to pass the data to the component, and throw a 404 if no note is found.
 
@@ -84,8 +84,6 @@ NoteDisplay can delete a note, but this is now a relative URL using a action="/d
 
 It's using the action to delete the note from the database, and redirect. Web standard stuff that at least for me is very unfamiliar as a React SPA dev originally. Delete checks for the intent to be expected. This can be used to handle multiple actions in the same route module. Then deletes from the db and redirects.
 
-LIVE CODE ADD ROUTE and try it out.
-
 ## Browser framework
 
 And until we didn't actually use that much of the browser framework, only Form and Links and prefetching etc. Does this feel like React? We are able to create all this without any React-stuff. Amazing right?
@@ -94,7 +92,7 @@ LIVE CODE add some, realistic added delay and that makes it not feel so good. Lo
 
 For a good user experience we need to add some loading states and optimistic UI. We need to showcase whenever the user clicks by providing instant feedback. This is where the browser framework comes in. Let's start adding some UI enhancements using more of the browser framework of React Router.
 
-### Pending UI: home.tsx
+### (Pending UI: home.tsx)
 
 LIVE CODE: In the home.tsx, we will use a React Router specific hook called useNavigation. It will give you the current state of the navigation, and provide i.e whether the router is navigating, which we use here to mark the page as pending with css or text. This hook adds on top of our base case HTML web standard document with additional client-side, js enhanced features. This is React Router's way to do progressive enhancement.
 
@@ -120,9 +118,9 @@ LIVE CODE: It's doing optimistic UI by returning a view of a JokeDisplay if the 
 
 ## Progressive enhancement turn off JS
 
-Go to fullscreen app.
+Go to fullscreen app. Demo all features.
 
-Turn off JS and see that the app still works. Web fundamentals in play to navigate, submit forms. Just lacking the client side enhancement of prefetching and client side navigation. And no client side loading state. And optimistic updates. Can even favorite because it's a form.
+Whats amazing here, turn off JS and see that the app still works. Web fundamentals in play to navigate, submit forms. Just lacking the client side enhancement of prefetching and client side navigation. And no client side loading state. And optimistic updates. Can even favorite because it's a form.
 
 Can return errors from the form and delete notes. But we don't get client side pending state or optimistic updates. Thats all a progressive enhancement of this base case web standard application. Resilient.
 
