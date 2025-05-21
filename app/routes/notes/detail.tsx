@@ -3,6 +3,7 @@ import type { Route } from '../../routes/notes/+types/detail';
 import { prisma } from '~/../db';
 import NoteDisplay from '~/components/NoteDisplay';
 import ErrorMessage from '~/components/ui/ErrorMessage';
+import { slow } from '~/utils/slow';
 
 export function meta({ data }: Route.MetaArgs) {
   const { description, title } = data
@@ -20,6 +21,8 @@ export function meta({ data }: Route.MetaArgs) {
 }
 
 export async function loader({ params }: Route.LoaderArgs) {
+  await slow();
+
   const note = await prisma.note.findUnique({
     where: { id: Number(params.noteId) },
   });
@@ -34,6 +37,8 @@ export async function loader({ params }: Route.LoaderArgs) {
 }
 
 export async function action({ params, request }: Route.ActionArgs) {
+  await slow();
+
   const formData = await request.formData();
   return prisma.note.update({
     data: {
