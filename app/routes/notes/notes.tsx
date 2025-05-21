@@ -20,7 +20,7 @@ export default function NotesRoute() {
         <div className="flex flex-col gap-4">
           <NavButton to={href('/notes/new')}>Create note</NavButton>
           <div className="rounded-sm border border-gray-500 p-4 md:w-[300px]">
-            <h2 className="mt-4 mb-2 text-xl">Notes</h2>
+            <h2 className="mb-2 text-xl">Notes</h2>
             <ul className="flex max-h-[250px] flex-col gap-1 overflow-auto md:max-h-[400px]">
               {notes.map(({ id, title, favorite }) => {
                 const isActive = false;
