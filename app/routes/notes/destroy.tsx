@@ -10,13 +10,13 @@ export async function action({ params, request }: Route.ActionArgs) {
     });
   }
   const note = await prisma.note.findUnique({
-    where: { id: params.noteId },
+    where: { id: Number(params.noteId) },
   });
   if (!note) {
     throw new Response('Cannot delete a note that does not exist', {
       status: 404,
     });
   }
-  await prisma.note.delete({ where: { id: params.noteId } });
+  await prisma.note.delete({ where: { id: Number(params.noteId) } });
   return redirect(href('/notes'));
 }

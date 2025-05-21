@@ -80,9 +80,11 @@ It's also using the useRouteError hook to catch any errors that might occur when
 
 It be favorited. Maybe a bit weird to see a form for this. This triggers the relative URL action="/". This is a relative URL that will call the route module with the action favorite. Here we use a fetcher Form because we are not navigating anywhere and we don't want to trigger a new push to the router.
 
-NoteDisplay can delete a note, but this is now a relative URL using a action="/destroy". LIVE CODE ADD ROUTE. Using a form as well which is unfamiliar for React devs who usually just do button onClicks. This is a relative URL, resource route, that will call the route module with the action destroy. Defined with code based routing.
+NoteDisplay can delete a note, but this is now a relative URL using a action="/destroy". Using a form as well which is unfamiliar for React devs who usually just do button onClicks. This is a relative URL, resource route, that will call the route module with the action destroy. Defined with code based routing.
 
 It's using the action to delete the note from the database, and redirect. Web standard stuff that at least for me is very unfamiliar as a React SPA dev originally. Delete checks for the intent to be expected. This can be used to handle multiple actions in the same route module. Then deletes from the db and redirects.
+
+LIVE CODE ADD ROUTE and try it out.
 
 ## Browser framework
 

@@ -23,7 +23,7 @@ export default function RandomNoteRoute({ loaderData }: Route.ComponentProps) {
   return (
     <Card>
       <p>{loaderData.randomNote.content}</p>
-      <Link to={href('/notes/:noteId', { noteId: loaderData.randomNote.id })}>
+      <Link to={href('/notes/:noteId', { noteId: loaderData.randomNote.id.toString() })}>
         Go to &quot;{loaderData.randomNote.title}&quot; details
       </Link>
     </Card>

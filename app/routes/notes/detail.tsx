@@ -21,7 +21,7 @@ export function meta({ data }: Route.MetaArgs) {
 
 export async function loader({ params }: Route.LoaderArgs) {
   const note = await prisma.note.findUnique({
-    where: { id: params.noteId },
+    where: { id: Number(params.noteId) },
   });
   if (!note) {
     throw new Response('Note not found.', {
@@ -39,7 +39,7 @@ export async function action({ params, request }: Route.ActionArgs) {
     data: {
       favorite: formData.get('favorite') === 'true',
     },
-    where: { id: params.noteId },
+    where: { id: Number(params.noteId) },
   });
 }
 

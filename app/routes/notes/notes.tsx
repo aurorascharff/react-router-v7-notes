@@ -42,7 +42,7 @@ export default function NotesRoute() {
                         isActive ? 'bg-primary/80 font-semibold text-white' : 'hover:bg-primary/10 text-primary',
                         isPending && !isActive && 'bg-primary/20 hover:bg-primary/20',
                       )}
-                      to={href('/notes/:noteId', { noteId: id })}
+                      to={href('/notes/:noteId', { noteId: id.toString() })}
                     >
                       <span>{title}</span>
                       <span className="sr-only">{favorite ? 'Favorite note' : ''}</span>
