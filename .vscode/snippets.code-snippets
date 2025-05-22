@@ -27,10 +27,9 @@
         "scope": "typescriptreact",
         "prefix": "redirectToNote",
         "body": [
-            "return redirect(href('/notes/:noteId', { noteId: note.id }));"
+            "return redirect(href('/notes/:noteId', { noteId: note.id.toString() }));"
         ]
-    }
-    ,
+    },
     "noteIsLoading": {
         "scope": "typescriptreact",
         "prefix": "noteIsLoading",
@@ -38,8 +37,7 @@
             "const navigation = useNavigation();",
             "const isLoading = navigation.state === 'loading' && location.pathname !== '/notes/new';"
         ]
-    }
-    ,
+    },
     "noteIsDeleting": {
         "scope": "typescriptreact",
         "prefix": "noteIsDeleting",

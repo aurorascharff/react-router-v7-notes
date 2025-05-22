@@ -47,7 +47,6 @@ export default function NotesRoute({ loaderData }: Route.ComponentProps) {
                       to={href('/notes/:noteId', { noteId: id.toString() })}
                     >
                       <span>{title}</span>
-                      <span className="sr-only">{favorite ? 'Favorite note' : ''}</span>
                       <span className="text-yellow-400">{favorite ? '★' : ''}</span>
                     </NavLink>
                   </li>
