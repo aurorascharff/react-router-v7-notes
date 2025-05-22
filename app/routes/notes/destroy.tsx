@@ -1,11 +1,8 @@
 import { href, redirect } from 'react-router';
 import type { Route } from './+types/destroy';
 import { prisma } from '~/../db';
-import { slow } from '~/utils/slow';
 
 export async function action({ params, request }: Route.ActionArgs) {
-  await slow();
-
   const form = await request.formData();
   if (form.get('intent') !== 'delete') {
     throw new Response(`The intent ${form.get('intent')} is not supported`, {
