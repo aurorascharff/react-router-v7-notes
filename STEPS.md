@@ -120,9 +120,11 @@ LIVE CODE: It's doing optimistic UI by returning a view of a JokeDisplay if the 
 
 Go to fullscreen app. Demo all features.
 
-Whats amazing here, since I've been enhancing the base server framework features, turn off JS and see that the app still works. Web fundamentals in play to navigate, submit forms. Just lacking the client side enhancement of prefetching and client side navigation. And no client side loading state. And optimistic updates. Can even favorite because it's a form.
+Whats amazing here in this app, turn off JS and see that the app still works. Web fundamentals in play to navigate, submit forms. Just lacking the client side enhancement of prefetching and client side navigation. And no client side loading state. And optimistic updates. Can even favorite because it's a form.
 
 Can return errors from the form and delete notes. But we don't get client side pending state or optimistic updates. Thats all a progressive enhancement of this base case web standard application. Resilient.
+
+No useState or useEffect used here needed. RR solves problems with RRM and browser APIs.
 
 Turn on JS and see the client side enhancements again.
 
