@@ -22,7 +22,7 @@ export async function action({ request }: Route.ActionArgs) {
 
   if (!result.success) {
     return badRequest({
-      errors: result.error.formErrors.fieldErrors,
+      errors: result.error.flatten().fieldErrors,
       values: { content, title },
     });
   }
