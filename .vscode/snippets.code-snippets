@@ -52,5 +52,25 @@
         "body": [
             "const favorite = fetcher.formData ? fetcher.formData.get('favorite') === 'true' : note.favorite;"
         ]
+    },
+    "noteAction": {
+        "scope": "typescriptreact",
+        "prefix": "noteAction",
+        "body": [
+            "export async function action({ request }: Route.ActionArgs) {",
+            "  const formData = await request.formData();",
+            "  const title = formData.get('title') as string;",
+            "  const content = formData.get('content') as string;",
+            "",
+            "  const result = noteSchema.safeParse({ title, content });",
+            "",
+            "  if (!result.success) {",
+            "    const errors = result.error.flatten().fieldErrors;",
+            "    return { errors };",
+            "  }",
+            "",
+            "  $0",
+            "}"
+        ]
     }
-}
+},
