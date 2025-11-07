@@ -1,6 +1,7 @@
-import { Form } from 'react-router';
+import { Form, useRouteError } from 'react-router';
 import Button from '~/components/ui/Button';
 import Card from '~/components/ui/Card';
+import ErrorMessage from '~/components/ui/ErrorMessage';
 import Input from '~/components/ui/Input';
 import TextArea from '~/components/ui/TextArea';
 
@@ -17,4 +18,11 @@ export default function NewNoteRoute() {
       </Form>
     </Card>
   );
+}
+
+export function ErrorBoundary() {
+  const error = useRouteError();
+  console.error(error);
+
+  return <ErrorMessage>Something unexpected went wrong. Sorry about that.</ErrorMessage>;
 }
